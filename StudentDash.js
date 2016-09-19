@@ -29,7 +29,7 @@ function calendarBuilder()
     document.getElementById("CalendarTitle").innerHTML = monthArray[calendarDate.getMonth()] + "</br>" + calendarDate.getFullYear();
     
     //ALIGN MONTH WITH THE DAYS OF THE WEEK
-    for(j = 0; j < (firstDay-2); j++)
+    for(j = 0; j < (firstDay-1); j++)
     {
         addChild("LI", " ", "days");       
     }
