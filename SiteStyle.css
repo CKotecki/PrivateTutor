@@ -80,6 +80,20 @@ p
 	float: left;
 }
 
+.Left_Partial
+{
+	background-color: #F4F6F5;
+	color: #005B80;
+	
+	font-size: 22px;
+	font-family: sans-serif;
+	
+	width: 40%;
+	height: 800px;
+	
+	float: left;
+}
+
 .Right_Main
 {
 	background-color: #005B80;
@@ -89,6 +103,34 @@ p
 	font-family: sans-serif;
 		
 	width: 50%;
+	height: 800px;
+	
+	float: left;
+}
+
+.Right_Partial
+{
+	background-color: #005B80;
+	color: #F4F6F5;
+	
+	font-size: 22px;
+	font-family: sans-serif;
+		
+	width: 40%;
+	height: 800px;
+	
+	float: right;
+}
+
+.Middle_Main
+{
+	/*background-color: #005B80;*/
+	/*color: #F4F6F5;*/
+	
+	/*font-size: 22px;*/
+	/*font-family: sans-serif;*/
+		
+	width: 20%;
 	height: 800px;
 	
 	float: left;
