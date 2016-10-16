@@ -2,7 +2,7 @@
 <!--CURTIS KOTECKI | LUKE JAYNES | CLAYTON TALLWHITEMAN                                    -->
 <!--PRIVATE TUTORING: StudentDash.HTML                                                     -->
 <!--CREATED: 09/16/2016                                                                    -->
-<!--MODIFIED: 09/16/2016                                                                   -->
+<!--MODIFIED: 10/17/2016                                                                  -->
 <!------------------------------------------------------------------------------------------->
 
 <!DOCTYPE html>
@@ -13,37 +13,43 @@
         
         <!--META DATA-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
         
         <!--EXTERNAL SCRIPT IMPORTS-->
-        <link rel="stylesheet" type="text/css" href="SiteStyle.css">   
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
+        
+        <link rel="stylesheet" type="text/css" href="SiteStyle.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     </head>     
     
     <body>
         <div class="Header"><h1>Private Tutoring</h1></div>
         <div class="Menu"></div>
         <div class="Main">
-            <div class="month">
-                <ul>
-                    <li class="prev">&#10094;</li>
-                    <li class="next">&#10095;</li>
-                    <li id="CalendarTitle" style="text-align:center">
-                    </li>
+            <div class="calendar">
+                <div class="month">
+                    <ul>
+                        <li class="prev" onclick="monthChooser('arrows', 'previous')">&#10094;</li>
+                        <li class="next" onclick="monthChooser('arrows', 'next')">&#10095;</li>
+                        <li id="CalendarTitle" style="text-align:center">
+                        </li>
+                    </ul>
+                </div>
+            
+                <ul class="weekdays">
+                  <li>Su</li>
+                  <li>Mo</li>
+                  <li>Tu</li>
+                  <li>We</li>
+                  <li>Th</li>
+                  <li>Fr</li>
+                  <li>Sa</li>
+                </ul>
+            
+                <ul class="days" id="days">
                 </ul>
             </div>
-        
-            <ul class="weekdays">
-              <li>Su</li>
-              <li>Mo</li>
-              <li>Tu</li>
-              <li>We</li>
-              <li>Th</li>
-              <li>Fr</li>
-              <li>Sa</li>
-            </ul>
-        
-            <ul class="days" id="days">
-              
-            </ul>
         </div>
         <div class="Footer"></div>
     </body>

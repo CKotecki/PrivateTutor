@@ -2,65 +2,210 @@
 //Curtis Kotecki | Luke Jaynes | Clayton Tallwhiteman
 //Javascript - Student Dashboard
 //CREATED:09/17/2016
-//MODIFLED: 09/17/2016
+//MODIFLED: 10/15/2016
 //-----------------------------------------------------------
 
-function addChild(element, value, id)
+//CLASS LEVEL VARIABLES
+var trueDate = new Date();
+trueDate.setDate(0);
+
+function addChild(element, value, parentId, childId)
 {
     var node = document.createElement(element);
     var textNode = document.createTextNode(value);
     
-    node.setAttribute("id", value);
+    node.setAttribute("id", childId);
     node.appendChild(textNode);
-    document.getElementById(id).appendChild(node);
+    document.getElementById(parentId).appendChild(node);
 }
 
-function calendarBuilder()
+function calendarBuilder(month, year)
 {
     //METHOD VARIABLES
     var calendarDate = new Date();
+  
+    //SET CURRENT MONTH VIEWING OF CALENDAR
+    if(month != null)
+    {
+        calendarDate.setMonth(month);
+    }
+    
+    if(year != null)
+    {
+        alert(calendarDate.getFullYear());
+        alert(year);
+        alert("hllo3");
+        calendarDate.setFullYear(year);
+        alert(calendarDate.getFullYear());
+    }
+    
     var monthArray = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    var currentDay = calendarDate.getDate();
-    var givenDate = (calendarDate.getFullYear() + "-" + "01" + "-" + calendarDate.getMonth());
-    var tempDate = new Date(givenDate);
+    var currentDay = trueDate.getDate();
+    var tempDate = new Date();
+        tempDate.setMonth(calendarDate.getMonth());
+        tempDate.setDate(1);
     var firstDay = tempDate.getDay();
+    var daysInPrevMonth;
+    var prevMonth;
+    
+    //ALIGN MONTH WITH THE DAYS OF THE WEEK
+    var getLastDayPrevMonth = function(month,year)
+    { 
+        return new Date(year, month, 0);
+    };
+    
+    lastDayPrevMonth = getLastDayPrevMonth((calendarDate.getMonth()),calendarDate.getFullYear());
+    lastDayThisMonth = getLastDayPrevMonth((calendarDate.getMonth()+1),calendarDate.getFullYear());
+    daysInPrevMonth = getLastDayPrevMonth((calendarDate.getMonth()),calendarDate.getFullYear()).getDate();
+    
+    daysDifference = lastDayPrevMonth.getDay();
+    daysInPrevMonth = daysInPrevMonth - daysDifference;
     
     //BUILD CALENDAR TITLE
     document.getElementById("CalendarTitle").innerHTML = monthArray[calendarDate.getMonth()] + "</br>" + calendarDate.getFullYear();
-    
-    //ALIGN MONTH WITH THE DAYS OF THE WEEK
-    for(j = 0; j < (firstDay-1); j++)
+         
+    for(j = 0; j < (firstDay); j++)
     {
-        addChild("LI", " ", "days");       
+        addChild("LI", daysInPrevMonth, "days", daysInPrevMonth + " prevMonth");
+        daysInPrevMonth++;
     }
     
     //BUILD NUMBER OF DAYS IN MONTH
-    if(calendarDate.getMonth() == 3 | calendarDate.getMonth() == 6 | calendarDate.getMonth() == 8 | calendarDate.getMonth() == 10)
+    
+    //MONTHS WITH 30 DAYS
+    if(calendarDate.getMonth() == 3 | calendarDate.getMonth() == 5 | calendarDate.getMonth() == 8 | calendarDate.getMonth() == 10)
     {
         for(i = 1; i <= 30; i++)
         {
-            addChild("LI", i, "days");
+            addChild("LI", i, "days", i);
         }
     }
     
+    //IF LEAP YEAR
     else if(calendarDate.getMonth() == 1 && calendarDate.getFullYear() % 4 === 0 && calendarDate.getFullYear() % 100 !== 0 || calendarDate.getFullYear() % 400 === 0)
     {
         for(i = 1; i <= 28; i++)
         {
-            addChild("LI", i, "days");
+            addChild("LI", i, "days", i);
         }
     }
     
+    //MONTHS WITH 31 DAYS
     else
     {
         for(i = 1; i <= 31; i++)
         {
-            addChild("LI", i, "days");
+            addChild("LI", i, "days", i);
         }
     }
     
+    //DAYS DIFFERENCE IS THE 7 - THE NUMERICAL VALUE OF THE DAY OF THE WEEK OF THE LAST DAY OF THE MONTH
+    if(lastDayThisMonth != 0)
+    {
+        daysDifference = 6 - lastDayThisMonth.getDay();
+    }
+    
+    for(j = 0; j < (daysDifference); j++)
+    {
+        addChild("LI", (j+1), "days", (j+1) + " nextMonth");
+    }
+    
+    
+    //SET CSS FOR PREVIOUS MONTH DAYS AND NEXT MONTH DAYS
+    $("li[id$='prevMonth']").css("background-color", "#d9d9d9");
+    $("li[id$='nextMonth']").css("background-color", "#d9d9d9");
+    
     //SET CURRENT DATE
-    document.getElementById(currentDay).setAttribute("class", "active"); 
+    if(trueDate.getMonth() == calendarDate.getMonth() && trueDate.getFullYear() == calendarDate.getFullYear())
+    {
+        document.getElementById(currentDay).setAttribute("class", "active");
+        document.getElementById(currentDay).setAttribute("style", null);
+    }
+    
+    else if(trueDate.getMonth() == calendarDate.getMonth() - 1 && trueDate.getFullYear() == calendarDate.getFullYear())
+    {
+        if(document.getElementById(currentDay + " prevMonth") != null)
+        {
+            document.getElementById(currentDay + " prevMonth").setAttribute("class", "active");
+            document.getElementById(currentDay + " prevMonth").setAttribute("style", null);
+        }
+    }
+    
+    else if(trueDate.getMonth() == calendarDate.getMonth() + 1 && trueDate.getFullYear() == calendarDate.getFullYear())
+    {
+        if(document.getElementById(currentDay + " nextMonth") != null)
+        {
+            document.getElementById(currentDay + " nextMonth").setAttribute("class", "active");
+            document.getElementById(currentDay + " nextMonth").setAttribute("style", null);
+        }
+    }
+}
+
+function setViewingMonth(op)
+{
+    var viewingMonth = trueDate.getMonth()+1;
+   
+    return {
+        changeViewingMonth: function(x)
+        {
+            return viewingMonth += x;
+        }
+    };
+};
+
+function setViewingYear()
+{
+    var viewingYear = trueDate.getFullYear();
+        
+    return {
+        changeViewingYear: function(x)
+        {
+            alert("viewieng year" + viewingYear);
+            return viewingYear += x;
+        }
+	};
+};
+
+var temp = setViewingMonth();
+var temp2 = setViewingYear();
+
+function monthChooser(button, direction)
+{
+    daysList = document.getElementById("days");
+
+    while(daysList.firstChild)
+    {
+        daysList.removeChild(daysList.firstChild);
+    }
+        
+    if(direction == "next")
+    {
+        if(temp.changeViewingMonth(0) == 11)
+        {
+            alert("hllo");
+            calendarBuilder(temp.changeViewingMonth(-11), temp2.changeViewingYear(1));
+        }
+        
+        else
+        {
+            calendarBuilder(temp.changeViewingMonth(1));
+        }
+    }
+    
+    else if (direction == "previous")
+    {
+        if(temp.changeViewingMonth(0) == 0)
+        {
+            alert("hllo2");
+            calendarBuilder(temp.changeViewingMonth(11), temp2.changeViewingYear(-1));
+        }
+        
+        else
+        {
+            calendarBuilder(temp.changeViewingMonth(-1));
+        }
+    }
+    
 }
 
 calendarBuilder();
