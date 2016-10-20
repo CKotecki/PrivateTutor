@@ -15,14 +15,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <!--EXTERNAL SCRIPT IMPORTS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="SiteStyle.css">
         <link rel="stylesheet" type="text/css" href="style.css">
+        
+        <!--Login Functions-->
+        <script>
+        $(document).ready(function(){
+
+            $("#submit").click(function()
+            {
+                //alert("Yo");
+                $('#loginDiv').hide();
+                
+                $("#studentDiv").animate({width: $(window).width() / 2});
+                
+                $("#tutorDiv").animate({width: $(window).width() / 2});
+               
+            });
+        });
+        </script>
+        
     </head>     
     
     <body>
         <div class="Header"><h1>Private Tutoring</h1></div>
         <div class="Menu"></div>
-        <div class="Left_Partial">
+        <div class="Left_Partial" id="studentDiv">
             <h2>STUDENTS</h2>
             <p></p>
             <p></p>
@@ -31,7 +50,7 @@
           </p>
         
         </div>
-        <div class="Middle_Main">
+        <div class="Middle_Main" id="loginDiv">
             <div class="login">
                 <div class="login-screen">
                     <div class="app-title">
@@ -49,7 +68,7 @@
                         <label class="login-field-icon fui-lock" for="login-pass"></label>
                         </div>
         
-                        <a class="btn btn-primary btn-large btn-block" href="#">login</a>
+                        <a class="btn btn-primary btn-large btn-block" href="#" id="submit">login</a>
                         <a class="login-link" href="#">Lost your password?</a>
                     </div>
                 </div>
@@ -58,7 +77,7 @@
             
         </div>
         
-        <div class="Right_Partial">
+        <div class="Right_Partial" id="tutorDiv">
             <h2 style="color: #F4F6F5">TUTORS</h2>
             <p></p>
             <p></p>
