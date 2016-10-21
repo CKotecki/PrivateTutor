@@ -2,15 +2,24 @@
 /* --CURTIS KOTECKI | LUKE JAYNES | CLAYTON TALLWHITEMAN                                   -*/
 /*--SITE STYLE SHEET (CSS): SiteStyle.css                                                  -*/
 /*--CREATED: 09/13/2016                                                                    -*/
-/*--MODIFIED: 09/13/2016                                                                   -*/
+/*--MODIFIED: 10/17/2016                                                                   -*/
 /*------------------------------------------------------------------------------------------*/
 
 /*----------------------------------------*/
 /* TAG STYLES							  */
 /*----------------------------------------*/
+
+html
+{
+	position: relative;
+    min-height: 100%;
+}
+
 body
 {
 	margin: 0px;
+	margin-bottom: 170px;
+	background-color: #F4F6F5;
 }
 
 h1
@@ -37,27 +46,76 @@ p
 /*----------------------------------------*/
 /* CLASS STYLES							  */
 /*----------------------------------------*/
-.Header
+.title
 {
 	background-color: #004A70;
 	width: 100%;
-	height: 200px;
+	height: 350px;
+	min-width: 372px;
 	text-align: center;
 }
 
-.Menu
+.header
 {
-	width:
+	margin: 0px;
+	background-color: #008793;
+	position: absolute;
+	top: 250px;
+	width: 100%;
+	min-width: 372px;
+	height: 100px;
+}
+
+#title
+{
+	padding-top: 25px;
+	width: 275px;
+}
+
+.menu
+{
+	width: 520px;
+	height: 100%;
+	background-color:  #004466;
+	color: rgb(250,251,252);
+	position: absolute;
+	margin: 0px;
+	top: 350px;
+	left: -520px;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 50px;
+}
+
+.icon_menu_open
+{
+	font-size: 65px;
+	color: rgba(250,251,252,1);
+	cursor: pointer;
+	position: absolute;
+	margin: 0px;
+	top: 15px;
+	left: 40px;
+}
+
+.icon_menu_close
+{
+	font-size: 80px;
+	color: rgba(250,251,252,1);
+	display: none;
+	cursor: pointer;
+	position: absolute;
+	margin: 0px;
+	top: 5px;
+	left: -100px;
 }
 
 .Main
 {
 	background-color: #F4F6F5;
 	color: #005B80;
-	
 	font-size: 22px;
 	font-family: sans-serif;
-	
+	min-width: 372px;
 	width: 100%;
 	height: auto;
 	
@@ -137,9 +195,11 @@ p
 .Footer
 {
 	background-color: #2CC0A6;
-	width: 100%;
 	height: 200px;
 	float: left;
+	position: absolute;
+    width: 100%;
+    bottom:-400px;
 }
 
 /* STUDENT DASHBOARD SPECIFIC STYLES */
@@ -147,12 +207,60 @@ p
 .calendar
 {
 	float: right;
-	margin: 0px;
 	width: 50%;
+	min-width: 372px;
+	margin: 0px;
+}
+
+.chip
+{
+    display: inline-block;
+	float: right;
+    padding: 0 25px;
+	margin: 10px;
+    height: 80px;
+    font-size: 20px;
+    line-height: 75px;
+    border-radius: 45px;
+    background-color: #00a4b3;
+	color: #CFFCF9;
+	font-family: Roboto Condensed, sans-serif;
+	overflow: hidden;
+}
+
+.chip img
+{
+    float: left;
+    margin-top: 0px;
+	margin-right: 65px;
+	margin-left: -26px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
 }
 /*----------------------------------------*/
 /* ID STYLES							  */
 /*----------------------------------------*/
+
+#menu_divider
+{
+	margin-left: -40px;
+	min-width: 332px;
+}
+
+#menu_items
+{
+	list-style: none outside none;
+	min-width: 332px;
+}
+
+#menu_nav_links
+{
+	text-decoration: none;
+	padding-right: 40px;
+	color: rgb(250,251,252);
+	min-width: 332px;
+}
 
 /*--------------------------------------------------------------*/
 /* MOBILE STYLING 												*/
@@ -210,6 +318,7 @@ body
 {
     float: left;
     padding-top: 10px;
+	font-size: 35px;
 	cursor: pointer;
 }
 
@@ -217,6 +326,7 @@ body
 {
     float: right;
     padding-top: 10px;
+	font-size: 35px;
 	cursor: pointer;
 }
 
@@ -239,8 +349,9 @@ body
 
 .days
 {
-    padding: 10px 0px;
-    background: #eee;
+    padding: 3px 0px 3px 3px;
+    /*background: #eee;*/
+	background-color: #4defcf;
 	width: 100%;
     margin: 0;
 	min-width: 300px;
@@ -254,36 +365,52 @@ body
     text-align: center;
     margin: 3px;
     font-size:16px;
-	font-family: fantasy;
+	font-family: sans-serif;
     color: #777;
-	border: solid .5px;
-	border-color: #1abc9c;
+	background-color: #F4F6F5;
+	/*border: solid .5px;
+	border-color:  #78edd5;
+	border-radius: 5px;*/
 	padding-top: 31px;
 	padding-bottom: 32px;
 }
 
 .active
 {
-    padding: 5px;
-    background: #1abc9c;
+    background: #1abc9c !important;
     color: white !important;
 }
 
-
- Add media queries for smaller screens
-@media only screen and (max-width:1280px)
+@media only screen and (max-width:1750px)
 {
     .weekdays li, .days li
 	{
-		width: 12.6%;
+		width: 13.4%;
 	}
 }
 
-@media only screen and (max-width:720px)
+@media only screen and (max-width:1359px)
 {
     .weekdays li, .days li
 	{
-		width: 12.5%;
+		width: 13.2%;
+	}
+}
+
+@media only screen and (max-width:1039px)
+{
+    .menu
+	{
+		width: 100%;
+		left: -200%;
+	}
+}
+
+@media only screen and (max-width:1116px)
+{
+    .weekdays li, .days li
+	{
+		width: 12.9%;
 	}
 }
 
@@ -291,18 +418,61 @@ body
 {
     .weekdays li, .days li
 	{
-		width: 12.2%;
-	}
-    
-	.days li .active
-	{
-		padding: 2px;
+		width: 13.4%;
 	}
 	
 	.calendar
 	{
 		width: 100%;
-		float: none;
+		float: left;
+	}
+}
+
+@media only screen and (max-width:767px)
+{
+    .weekdays li, .days li
+	{
+		width: 13.3%;
+	}
+}
+
+@media only screen and (max-width:720px)
+{
+    .weekdays li, .days li
+	{
+		width: 13.2%;
+	}
+}
+
+@media only screen and (max-width: 610px)
+{
+    .weekdays li, .days li
+	{
+		width: 13.0%;
+	}
+}
+
+@media only screen and (max-width: 518px)
+{
+    .weekdays li, .days li
+	{
+		width: 12.8%;
+	}
+}
+
+@media only screen and (max-width: 435px)
+{
+    .weekdays li, .days li
+	{
+		width: 12.5%;
+	}
+}
+
+@media only screen and (max-width: 355px)
+{
+    .weekdays li, .days li
+	{
+		width: 12.2%;
 	}
 }
 

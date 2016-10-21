@@ -1,8 +1,8 @@
 //-----------------------------------------------------------
-//Curtis Kotecki | Luke Jaynes | Clayton Tallwhiteman
-//Javascript - Student Dashboard
+//CURTIS KOTECKI
+//JAVASCRIPT - CALENDAR
 //CREATED:09/17/2016
-//MODIFLED: 10/15/2016
+//MODIFLED: 10/16/2016
 //-----------------------------------------------------------
 
 //CLASS LEVEL VARIABLES
@@ -32,13 +32,13 @@ function calendarBuilder(month, year)
     
     if(year != null)
     {
-        alert(calendarDate.getFullYear());
-        alert(year);
-        alert("hllo3");
         calendarDate.setFullYear(year);
-        alert(calendarDate.getFullYear());
     }
     
+    //alert(calendarDate.getFullYear() + " full year");
+    //alert(calendarDate.getMonth() + " month");
+    //alert(calendarDate.getDate() + " day");
+    //alert(calendarDate.getDay() + " day of the week");
     var monthArray = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     var currentDay = trueDate.getDate();
     var tempDate = new Date();
@@ -112,8 +112,8 @@ function calendarBuilder(month, year)
     
     
     //SET CSS FOR PREVIOUS MONTH DAYS AND NEXT MONTH DAYS
-    $("li[id$='prevMonth']").css("background-color", "#d9d9d9");
-    $("li[id$='nextMonth']").css("background-color", "#d9d9d9");
+    $("li[id$='prevMonth']").css("background-color", "#d9d9d9").css("color", "#999");
+    $("li[id$='nextMonth']").css("background-color", "#d9d9d9").css("color", "#999");
     
     //SET CURRENT DATE
     if(trueDate.getMonth() == calendarDate.getMonth() && trueDate.getFullYear() == calendarDate.getFullYear())
@@ -160,7 +160,6 @@ function setViewingYear()
     return {
         changeViewingYear: function(x)
         {
-            alert("viewieng year" + viewingYear);
             return viewingYear += x;
         }
 	};
@@ -182,7 +181,6 @@ function monthChooser(button, direction)
     {
         if(temp.changeViewingMonth(0) == 11)
         {
-            alert("hllo");
             calendarBuilder(temp.changeViewingMonth(-11), temp2.changeViewingYear(1));
         }
         
@@ -196,7 +194,6 @@ function monthChooser(button, direction)
     {
         if(temp.changeViewingMonth(0) == 0)
         {
-            alert("hllo2");
             calendarBuilder(temp.changeViewingMonth(11), temp2.changeViewingYear(-1));
         }
         
@@ -209,3 +206,13 @@ function monthChooser(button, direction)
 }
 
 calendarBuilder();
+
+$(".calendar").on("swipeleft", function()
+{
+    monthChooser("arrows", "next");
+});
+
+$(".calendar").on("swiperight", function()
+{
+    monthChooser("arrows", "previous");
+});
