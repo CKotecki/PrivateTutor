@@ -19,6 +19,7 @@
         <link rel="stylesheet" type="text/css" href="SiteStyle.css">
         <link rel="stylesheet" type="text/css" href="style.css">
         
+        
         <!--Login Functions-->
         <script>
         $(document).ready(function(){
@@ -26,11 +27,11 @@
             $("#submit").click(function()
             {
                 //alert("Yo");
-                $('#loginDiv').hide();
+                $('#loginDiv').fadeOut();
                 
-                $("#studentDiv").animate({width: $(window).width() / 2});
+                $("#studentDiv").delay(400).animate({width: $(window).width() / 2}, 2000);
                 
-                $("#tutorDiv").animate({width: $(window).width() / 2});
+                $("#tutorDiv").delay(400).animate({width: $(window).width() / 2}, 2000);
                
             });
         });
@@ -39,7 +40,35 @@
     </head>     
     
     <body>
-        <div class="Header"><h1>Private Tutoring</h1></div>
+        <div class="title">
+            <img id="title" src="logo.png" alt="Lesson Logistics">
+            
+            <div class="header">			
+                <div class = "icon_menu_open">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+                
+                <div class = "icon_menu_close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                
+                 <div class="chip">
+                    <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">John Doe
+                </div>
+            </div>
+            <div class="menu">
+                <ul id = "menu_items">
+                    <li><a href="index.html" id="menu_nav_links">Home</a></li>
+                    <li><hr id = "menu_divider"></li>
+                    <li><a href="portfolio.html" id="menu_nav_links">Portfolio</a></li>
+                    <li><hr id = "menu_divider"></li>
+                    <li><a href="resume.html" id="menu_nav_links">Resume</a></li>
+                    <li><hr id = "menu_divider"></li>
+                    <li<a href="contact.html" id="menu_nav_links">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+            
         <div class="Menu"></div>
         <div class="Left_Partial" id="studentDiv">
             <h2>STUDENTS</h2>
