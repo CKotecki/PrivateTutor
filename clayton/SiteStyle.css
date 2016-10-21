@@ -63,15 +63,11 @@ p
 	height: 800px;
 
 	float: left;
-
-	
-	
 }
 .Left_Main input{
 	float: right;
 	padding-right: 50px;
 	margin-right: 20px;
-	pagging-left: 20px;
 }
 
 .Left_Main select{
@@ -90,8 +86,6 @@ p
 	height: 800px;
 
 	float: left;
-	
-
 }
 .Footer
 {
