@@ -491,3 +491,12 @@ body
 		width: 11.5%;
 	}
 }
+
+/*Submit Button Contact Us Page*/
+#ContactSubmit {
+	width: 20%;
+}
+/*Submit Button Account Creation Page*/
+#AccountSubmit {
+	width:20%;
+}
