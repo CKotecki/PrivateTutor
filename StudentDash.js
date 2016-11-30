@@ -7,7 +7,7 @@
 
 //CLASS LEVEL VARIABLES
 var trueDate = new Date();
-trueDate.setDate(0);
+//trueDate.setDate();
 
 function addChild(element, value, parentId, childId)
 {
@@ -34,11 +34,7 @@ function calendarBuilder(month, year)
     {
         calendarDate.setFullYear(year);
     }
-    
-    //alert(calendarDate.getFullYear() + " full year");
-    //alert(calendarDate.getMonth() + " month");
-    //alert(calendarDate.getDate() + " day");
-    //alert(calendarDate.getDay() + " day of the week");
+	
     var monthArray = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     var currentDay = trueDate.getDate();
     var tempDate = new Date();

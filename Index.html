@@ -2,42 +2,28 @@
 <!--CURTIS KOTECKI | LUKE JAYNES | CLAYTON TALLWHITEMAN                                    -->
 <!--PRIVATE TUTORING: Index.HTML                                                           -->
 <!--CREATED: 09/13/2016                                                                    -->
-<!--MODIFIED: 09/13/2016                                                                   -->
+<!--MODIFIED: 11/21/2016 CURTIS KOTECKI                                                    -->
 <!------------------------------------------------------------------------------------------->
 
 <!DOCTYPE html>
 
 <html>
     <head>
-        <title>Private Tutoring</title>
+        <title>Lesson Logistics</title>
         
         <!--META DATA-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
         
         <!--EXTERNAL SCRIPT IMPORTS-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="font-awesome-4.6.3/css/font-awesome.css">
+        
         <link rel="stylesheet" type="text/css" href="SiteStyle.css">
-        <link rel="stylesheet" type="text/css" href="style.css">
         
-        
-        <!--Login Functions-->
-        <script>
-        $(document).ready(function(){
-
-            $("#submit").click(function()
-            {
-                //alert("Yo");
-                $('#loginDiv').fadeOut();
-                
-                $("#studentDiv").delay(400).animate({width: $(window).width() / 2}, 2000);
-                
-                $("#tutorDiv").delay(400).animate({width: $(window).width() / 2}, 2000);
-               
-            });
-        });
-        </script>
-        
-    </head>     
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+       
+    </head>    
     
     <body>
         <div class="title">
@@ -53,67 +39,96 @@
                 </div>
                 
                  <div class="chip">
-                    <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">John Doe
+                    <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">
+                    Sign In
                 </div>
             </div>
+      
             <div class="menu">
                 <ul id = "menu_items">
-                    <li><a href="index.html" id="menu_nav_links">Home</a></li>
+                    <li><a href="Index.html" id="menu_nav_links">Home</a></li>
                     <li><hr id = "menu_divider"></li>
-                    <li><a href="portfolio.html" id="menu_nav_links">Portfolio</a></li>
+                    <li><a href="StudentDashboard.html" id="menu_nav_links">My Dashboard</a></li>
                     <li><hr id = "menu_divider"></li>
-                    <li><a href="resume.html" id="menu_nav_links">Resume</a></li>
+                    <li><a href="Settings.html" id="menu_nav_links">Settings</a></li>
                     <li><hr id = "menu_divider"></li>
-                    <li<a href="contact.html" id="menu_nav_links">Contact</a></li>
+                    <li<a href="ContactUs.html" id="menu_nav_links">Contact</a></li>
                 </ul>
-            </div>
+            </div>  
         </div>
-            
-        <div class="Menu"></div>
-        <div class="Left_Partial" id="studentDiv">
-            <h2>STUDENTS</h2>
-            <p></p>
-            <p></p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed tempor lacus. Vivamus molestie eget est a mattis. Etiam pharetra a nisl sed convallis. Duis vel volutpat tortor, a ultrices diam. Etiam vitae diam varius lectus pharetra interdum eget at velit. Nulla ut scelerisque enim. Integer feugiat nibh quis vehicula scelerisque. Maecenas felis erat, maximus non purus eu, egestas placerat eros. Duis sed leo lacus. Curabitur fringilla purus magna, a pretium erat pretium vel. Donec vel tempor ante. Proin ullamcorper purus ante, quis tristique metus pretium ut. Curabitur viverra rhoncus ante, et molestie augue tempor viverra. Pellentesque quis condimentum ligula. In sed felis at dolor pharetra volutpat quis vitae tellus. Sed ut ipsum lacus.
-
-          </p>
         
-        </div>
-        <div class="Middle_Main" id="loginDiv">
+        <div class="wrapper">
+            <div class="Left_Partial" id="studentDiv">
+                <img src="students.png" id="student-img">
+                 <h2>STUDENTS</h2>
+                 
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed tempor lacus. Vivamus molestie eget est a mattis. Etiam pharetra a nisl sed convallis. Duis vel volutpat tortor, a ultrices diam. Etiam vitae diam varius lectus pharetra interdum eget at velit. Nulla ut scelerisque enim. Integer feugiat nibh quis vehicula scelerisque. Maecenas felis erat, maximus non purus eu, egestas placerat eros. Duis sed leo lacus. Curabitur fringilla purus magna, a pretium erat pretium vel. Donec vel tempor ante. Proin ullamcorper purus ante, quis tristique metus pretium ut. Curabitur viverra rhoncus ante, et molestie augue tempor viverra. Pellentesque quis condimentum ligula. In sed felis at dolor pharetra volutpat quis vitae tellus. Sed ut ipsum lacus
+                </p>
+            </div>
+            
+            
             <div class="login">
                 <div class="login-screen">
                     <div class="app-title">
-                        <h1>Login</h1>
+                        <h1 class="app-title">Login</h1>
                     </div>
         
                     <div class="login-form">
                         <div class="control-group">
-                        <input type="text" class="login-field" value="" placeholder="username" id="login-name">
-                        <label class="login-field-icon fui-user" for="login-name"></label>
+                            <input type="text" class="login-field" value="" placeholder="username" id="login-name">
+                            <label class="login-field-icon fui-user" for="login-name"></label>
                         </div>
         
                         <div class="control-group">
-                        <input type="password" class="login-field" value="" placeholder="password" id="login-pass">
-                        <label class="login-field-icon fui-lock" for="login-pass"></label>
+                            <input type="password" class="login-field" value="" placeholder="password" id="login-pass">
+                            <label class="login-field-icon fui-lock" for="login-pass"></label>
                         </div>
         
                         <a class="btn btn-primary btn-large btn-block" href="#" id="submit">login</a>
                         <a class="login-link" href="#">Lost your password?</a>
                     </div>
                 </div>
+            </div>            
+            
+            
+            <div class="Right_Partial" id="tutorDiv">
+                <img src="teacher.png" id="tutor-img">
+                
+                <h2 style="color: #F4F6F5">TUTORS</h2>
+                   
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed tempor lacus. Vivamus molestie eget est a mattis. Etiam pharetra a nisl sed convallis. Duis vel volutpat tortor, a ultrices diam. Etiam vitae diam varius lectus pharetra interdum eget at velit. Nulla ut scelerisque enim. Integer feugiat nibh quis vehicula scelerisque. Maecenas felis erat, maximus non purus eu, egestas placerat eros. Duis sed leo lacus. Curabitur fringilla purus magna, a pretium erat pretium vel. Donec vel tempor ante. Proin ullamcorper purus ante, quis tristique metus pretium ut. Curabitur viverra rhoncus ante, et molestie augue tempor viverra. Pellentesque quis condimentum ligula. In sed felis at dolor pharetra volutpat quis vitae tellus. Sed ut ipsum lacus.
+                    Morbi in lorem mauris. Donec scelerisque erat eget mauris suscipit lao
+                </p>
             </div>
-            
-            
         </div>
         
-        <div class="Right_Partial" id="tutorDiv">
-            <h2 style="color: #F4F6F5">TUTORS</h2>
-            <p></p>
-            <p></p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed tempor lacus. Vivamus molestie eget est a mattis. Etiam pharetra a nisl sed convallis. Duis vel volutpat tortor, a ultrices diam. Etiam vitae diam varius lectus pharetra interdum eget at velit. Nulla ut scelerisque enim. Integer feugiat nibh quis vehicula scelerisque. Maecenas felis erat, maximus non purus eu, egestas placerat eros. Duis sed leo lacus. Curabitur fringilla purus magna, a pretium erat pretium vel. Donec vel tempor ante. Proin ullamcorper purus ante, quis tristique metus pretium ut. Curabitur viverra rhoncus ante, et molestie augue tempor viverra. Pellentesque quis condimentum ligula. In sed felis at dolor pharetra volutpat quis vitae tellus. Sed ut ipsum lacus.
-
-Morbi in lorem mauris. Donec scelerisque erat eget mauris suscipit lao
-        </div>
         <div class="Footer"></div>
     </body>
+    
+    <!--SCRIPTS-->
+    <script src="Menu.js"></script>
+    
+    <!--LOGIN FUNCTIONS-->
+    <script>
+        $(document).ready(function()
+        {
+            $("#submit").click(function()
+            {
+                $('#loginDiv').fadeOut();
+                //$("#studentDiv").delay(400).animate(
+                //{
+                //    width: Math.floor($(window).width()/2)
+                //}, 500);
+                //
+                //$("#tutorDiv").delay(400).animate(
+                //{
+                //    width: Math.floor($(window).width()/2)
+                //}, 500);
+            });
+            
+            $()
+        });
+     </script> 
 </html>
