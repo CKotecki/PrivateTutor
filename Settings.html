@@ -187,8 +187,6 @@
         function getContent() {
           
             if(typeof(Storage) !== "undefined") {
-					var hobbies;
-					var background;
 					
             		var username;
                     var firstName;
@@ -218,10 +216,8 @@
                if (localStorage.password !== "undefined") {
                      password = localStorage.getItem("newPassword");
 			   }	 
-			   if (localStorage.telephone !== "undefined") {
-                  
-					telephone = localStorage.getItem("TelephoneNumber");
-                 
+			   if (localStorage.telephone !== "undefined") {          
+					telephone = localStorage.getItem("TelephoneNumber");                
                }
                if (localStorage.address !== "undefined") { 
                     address = localStorage.getItem("Address");
@@ -248,19 +244,13 @@
         
         function clearAccountInfo() {
           
-            if(typeof(Storage) !== "undefined") {
-           
-              
-               
+            if(typeof(Storage) !== "undefined") {                   
                // this allows us to iterate through all the local storage items
               for (var i = 0; i < localStorage.length; i++){
                     var key = localStorage.key(i);
                     localStorage.removeItem(key);
-               }
-                   
-               $("#accountInfo").html("Local Storage Cleared");
-               
-                
+               }                  
+               $("#accountInfo").html("Local Storage Cleared");                           
             } else {
                 $("#accountInfo").html("Sorry, your browser does not support web storage...");
             }
@@ -293,7 +283,7 @@
                   <ul id = "menu_items">
                     <li><a href="Index.html" id="menu_nav_links">Home</a></li>
                     <li><hr id = "menu_divider"></li>
-                    <li><a href="StudentDashboard.html" id="menu_nav_links">My Dashboard</a></li>
+                    <li><a href="StudentDash.html" id="menu_nav_links">My Dashboard</a></li>
                     <li><hr id = "menu_divider"></li>
                     <li><a href="Settings.html" id="menu_nav_links">Settings</a></li>
                     <li><hr id = "menu_divider"></li>
