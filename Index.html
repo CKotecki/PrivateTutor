@@ -17,15 +17,42 @@
         
         <!--EXTERNAL SCRIPT IMPORTS-->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="font-awesome-4.6.3/css/font-awesome.css">
-        
-        <link rel="stylesheet" type="text/css" href="SiteStyle.css">
+
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+        <link rel="stylesheet" type="text/css" href="font-awesome-4.6.3/css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="SiteStyle.css">
+        
+        <script>
+            $(document).ready(function(){
+                $('#signIn').click(function(){
+                     console.log("open");
+                    $('#overlay').fadeIn(200,function(){
+                        $('#logPop').animate({'top':'400px'},200);
+                    });
+                     return false;
+                });
+                
+                //Close log in box
+                $('#boxclose').click(function(){
+                    console.log("close");
+                    $('#logPop').animate({'top':'-400px'},500,function(){
+                        $('#overlay').fadeOut('fast');
+                    });
+
+                });
+            });
+            
+        </script>
+
        
     </head>    
     
     <body>
+        
+        
         <div class="title">
             <img id="title" src="logo.png" alt="Lesson Logistics">
             
@@ -38,7 +65,7 @@
                     <i class="fa fa-times" aria-hidden="true"></i>
                 </div>
                 
-                 <div class="chip">
+                 <div class="chip" id="signIn">
                     <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">
                     Sign In
                 </div>
@@ -59,7 +86,7 @@
         
         <div class="wrapper">
             <div class="Left_Partial" id="studentDiv">
-                <img src="students.png" id="student-img">
+                <img src="students.png" id="student-img" class="Images">
                  <h2>STUDENTS</h2>
                  
                 <p>
@@ -67,33 +94,10 @@
                 </p>
             </div>
             
-            
-            <div class="login">
-                <div class="login-screen">
-                    <div class="app-title">
-                        <h1 class="app-title">Login</h1>
-                    </div>
-        
-                    <div class="login-form">
-                        <div class="control-group">
-                            <input type="text" class="login-field" value="" placeholder="username" id="login-name">
-                            <label class="login-field-icon fui-user" for="login-name"></label>
-                        </div>
-        
-                        <div class="control-group">
-                            <input type="password" class="login-field" value="" placeholder="password" id="login-pass">
-                            <label class="login-field-icon fui-lock" for="login-pass"></label>
-                        </div>
-        
-                        <a class="btn btn-primary btn-large btn-block" href="#" id="submit">login</a>
-                        <a class="login-link" href="#">Lost your password?</a>
-                    </div>
-                </div>
-            </div>            
-            
+
             
             <div class="Right_Partial" id="tutorDiv">
-                <img src="teacher.png" id="tutor-img">
+                <img src="teacher.png" id="tutor-img" class="Images">
                 
                 <h2 style="color: #F4F6F5">TUTORS</h2>
                    
@@ -105,28 +109,39 @@
         </div>
         
         <div class="Footer"></div>
+        
+            <!--Login Form-->
+            <div class="box" id="logPop">
+                <div class="login">
+                    <div class="login-screen">
+                        <a class="boxclose" id="boxclose"></a>
+                        <div class="app-title">
+                            <h1 class="app-title">Login</h1>
+                        </div>
+                
+                        <div class="login-form">
+                            <div class="control-group">
+                                <input type="text" class="login-field" value="" placeholder="username" id="login-name">
+                                <label class="login-field-icon fui-user" for="login-name"></label>
+                            </div>
+                
+                            <div class="control-group">
+                                <input type="password" class="login-field" value="" placeholder="password" id="login-pass">
+                                <label class="login-field-icon fui-lock" for="login-pass"></label>
+                            </div>
+                
+                            <a class="btn btn-primary btn-large btn-block" href="#" id="submit">login</a>
+                            <a class="login-link" href="#">Lost your password?</a>
+                            <a class="login-link" href="accountcreate.html">Create new account</a>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+            <div class="overlay" id="overlay" style="display:none;"></div>
     </body>
     
     <!--SCRIPTS-->
     <script src="Menu.js"></script>
     
-    <!--LOGIN FUNCTIONS-->
-    <script>
-        $(document).ready(function()
-        {
-            $("#submit").click(function()
-            {
-                $('#loginDiv').fadeOut();
-                //$("#studentDiv").delay(400).animate(
-                //{
-                //    width: Math.floor($(window).width()/2)
-                //}, 500);
-                //
-                //$("#tutorDiv").delay(400).animate(
-                //{
-                //    width: Math.floor($(window).width()/2)
-                //}, 500);
-            });
-        });
-     </script> 
+
 </html>
