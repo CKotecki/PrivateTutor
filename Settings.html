@@ -93,6 +93,7 @@
         $("#AccountSubmit").click(function(){
         
             saveAccount();
+			getExtra();
             clearBoxes();
 
            
@@ -121,8 +122,10 @@
           
             if(typeof(Storage) !== "undefined") {
           
-               
-					var username = $("#UserName").val();
+					var background = $("#Background").val();
+					var hobbies = $("#Hobbies").val();
+					
+					/*var username = $("#UserName").val();
                     var firstName = $("#FirstName").val();
                     var lastName = $("#LastName").val();
 					var email = $("#NewEmail").val();
@@ -130,9 +133,12 @@
 					var telephone = $("#TelephoneNumber").val();
                     var address = $("#Address").val();
                     var city = $("#City").val();
-					var state = $("#State").val();
+					var state = $("#State").val();*/
                     <!--var StudentTutor = $("#choice").val();
-					
+	
+					localStorage.setItem("ackground", background);
+					localStorage.setItem("Hobbies", hobbies);
+					/*
 					localStorage.setItem("UserName", username);
 					localStorage.setItem("FirstName", firstName);
 					localStorage.setItem("LastName", lastName);
@@ -142,23 +148,48 @@
 					localStorage.setItem("lastname", lastName);
 					localStorage.setItem("Address", address);
 					localStorage.setItem("City", city);
-					localStorage.setItem("State", state);
+					localStorage.setItem("State", state);*/
 					<!--localStorage.setItem("choice", StudentTutor);
 					
 
-					$("#accountInfo").html("Account Saved!");
+					$("#extraInfo").html("Hobbies and Background Saved!");
 			   
                
             } else {
-                $("#accountInfo").html("Sorry, your browser does not support web storage...");
+                $("#extraInfo").html("Sorry, your browser does not support web storage...");
             }
         }
-        
+        function getExtra(){
+		    if(typeof(Storage) !== "undefined") {
+			    var hobbies;
+				var background;
+		
+			   if (localStorage.background !== "undefined") {                  
+                   background = localStorage.getItem("Background");       
+               }
+			   if (localStorage.hobbies !== "undefined") {                  
+                   hobbies = localStorage.getItem("Hobbies");       
+               }
+			   
+			  // this allows us to iterate through all the local storage items
+              for (var i = 0; i < localStorage.length; i++){
+                    var key = localStorage.key(i);
+                    $('#extraInfo').append("</br>" + key + "   :        " + localStorage.getItem(key) );
+               }
+			   
+            } else {
+                $("#extraInfo").html("Sorry, your browser does not support web storage...");
+            }
+			   
+			   
+		}
         
         function getContent() {
           
             if(typeof(Storage) !== "undefined") {
-           
+					var hobbies;
+					var background;
+					
             		var username;
                     var firstName;
                     var lastName;
@@ -168,8 +199,10 @@
                     var address;
                     var city;
 					var state;
+			
                     <!--var StudentTutor;
                
+
 			   if (localStorage.username !== "undefined") {                  
                    username = localStorage.getItem("UserName");       
                }
@@ -273,6 +306,7 @@
 		<div>Your Information.</div> 
          <div id="accountInfo"></div>
 		 <div> Please give some personal information</div>
+		 
             <table width="70%" >
   <tbody width="60">
     <tr>
@@ -306,13 +340,17 @@
 				<option value="tutor" id="SatTest">SAT/Test Prep</option>										
 	</td>
     </tr>
-        <tr>
-      <td></td>
+	<tr>
+	  <td></td>
+      <td><button id="AccountSubmit" >Submit</button></td>
+    </tr>
+    <tr>
+      <td>Test button</td>
 	  
       <td><button id="btnViewAccount" >View Account</button></td>
     </tr>
 	    <tr>
-      <td></td>
+      <td>test button </td>
 	   
       <td><button id="btnClearAccount">Clear Account</button></td>
     </tr>
@@ -322,7 +360,7 @@
 
 
 		
-			<p></p>
+			<p><div id="extraInfo"></div></p>
         </div>
         <div class="Footer"><p></p></div>
     </body>
