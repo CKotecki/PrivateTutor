@@ -27,10 +27,10 @@
 		
 		<script type="text/javascript">
     
-        function getContent(){
-		    var storedValue = localStorage.getItem('UserName');
+        function getContent(id,e){
+		    var storedValue = localStorage.getItem('e');
 			    if(storedValue){
-					document.getElementById('getName').value = storedValue;
+					document.getElementById('id').value = storedValue;
 				}		   
 		}
         
@@ -67,7 +67,7 @@
                     <li><hr id = "menu_divider"></li>
                     <li><a href="Settings.html" id="menu_nav_links">Settings</a></li>
                     <li><hr id = "menu_divider"></li>
-                    <li><a href="ContactUs.html" id="menu_nav_links">Contact</a></li>
+                    <li<a href="ContactUs.html" id="menu_nav_links">Contact</a></li>
                 </ul>
           </div>
   </div>	
@@ -75,7 +75,7 @@
 	<div class="Left_Partial" > 
 		<img src="topics.jpeg" width="100" height="96" alt=""/>
 			<div id="getName" ></div>Name goes here</br>
-			<div id="getEmail" onload="getContent(this.id)">email goes here</div>
+			<div id="getEmail" onload="getContent(this.id, email)">email goes here</div>
 			
 
 
