@@ -29,8 +29,9 @@
             $(document).ready(function(){
                 $('#signIn').click(function(){
                      console.log("open");
+					 //Bring in log in box
                     $('#overlay').fadeIn(200,function(){
-                        $('#logPop').animate({'top':'400px'},200);
+                        $('#logPop').animate({'top':'375px'},200);
                     });
                      return false;
                 });
@@ -38,7 +39,7 @@
                 //Close log in box
                 $('#boxclose').click(function(){
                     console.log("close");
-                    $('#logPop').animate({'top':'-400px'},500,function(){
+                    $('#logPop').animate({'top':'-375px'},500,function(){
                         $('#overlay').fadeOut('fast');
                     });
 
