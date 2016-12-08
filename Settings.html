@@ -25,9 +25,7 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		 
-		 
-<script type="text/javascript">
+		<script type="text/javascript">
     $(function () {
         $("#txtmyPassword").bind("keyup", function () {
             //TextBox left blank.
@@ -87,14 +85,13 @@
     });
 	
 	
-	// Save user datat in local storage. 
+		   // Save user datat in local storage. 
     $(function() {
         $("#AccountSubmit").click(function(){
         
             saveAccount();
-			getExtra();
             clearBoxes();
-
+			getExtra();
            
         })
         
@@ -243,13 +240,19 @@
         
         function clearAccountInfo() {
           
-            if(typeof(Storage) !== "undefined") {                   
+            if(typeof(Storage) !== "undefined") {
+           
+              
+               
                // this allows us to iterate through all the local storage items
               for (var i = 0; i < localStorage.length; i++){
                     var key = localStorage.key(i);
                     localStorage.removeItem(key);
-               }                  
-               $("#accountInfo").html("Local Storage Cleared");                           
+               }
+                   
+               $("#accountInfo").html("Local Storage Cleared");
+               
+                
             } else {
                 $("#accountInfo").html("Sorry, your browser does not support web storage...");
             }
