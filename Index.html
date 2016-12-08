@@ -25,6 +25,7 @@
         
         <script>
             $(document).ready(function(){
+				
                 $('#signIn').click(function(){
                      console.log("open");
                     $('#overlay').fadeIn(200,function(){
@@ -41,8 +42,66 @@
                     });
 
                 });
+				
+				//sign in functions
+                $('#submit').click(function(){
+                    console.log("sign in");
+					var userName = $('#login-name').val();
+					$('#UserName').text(userName);
+					//Set username into cookie
+					setCookie("username", userName, 30);
+					console.log(userName);
+					var pass = $('#login-pass').val();
+					//Close the sign in box
+					//TODO - Check for validation with the back end
+                    $('#logPop').animate({'top':'-400px'},500,function(){
+                        $('#overlay').fadeOut('fast');
+                    });
+                });
+				//Check for cookies
+				checkCookie();
             });
+			
+			//Set cookie
+			function setCookie(cname,cvalue,exdays) {
+				var d = new Date();
+				d.setTime(d.getTime() + (exdays*24*60*60*1000));
+				var expires = "expires=" + d.toGMTString();
+				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+			}
             
+			//get Cookie
+			function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) === 0) {
+					return c.substring(name.length, c.length);
+				}
+			}
+			return "";
+		}
+			
+			//Check for user name
+			function checkCookie() {
+			console.log("Checking Cookie");
+			var user = getCookie("username");
+			if (user !== "") {
+				//alert("Welcome again " + user);
+				//Set test to Sign in
+				$('#UserName').text(user);
+			} else {
+				$('#UserName').text("Sign In");
+			//   user = prompt("Please enter your name:","");
+			//   if (user !== "" && user !== null) {
+			//	   setCookie("username", "Sign In", 30);
+					
+				}
+			}
         </script>
 
        
@@ -65,7 +124,8 @@
                 
                  <div class="chip" id="signIn">
                     <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">
-                    Sign In
+					
+                    <a id="UserName">Sign In</a>
                 </div>
             </div>
       
