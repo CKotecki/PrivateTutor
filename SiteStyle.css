@@ -11,16 +11,16 @@
 
 html
 {
-	position: relative;
-    min-height: 100%;
+   
 }
 
 body
 {
 	margin: 0px;
-	margin-bottom: 170px;
+	
 	background-color: #F4F6F5;
 	font-family: Roboto Condensed, sans-serif;
+
 }
 
 h1
@@ -113,8 +113,7 @@ p
 
 .wrapper
 {
-	position: absolute;
-	height: 1000px;
+	height: 100%;
 	margin: 0px;
 }
 
@@ -152,11 +151,25 @@ p
 	font-size: 22px;
 	display: block;
 	font-family: sans-serif;
-	position: absolute;
-	width: 50%;
-	height: 100%;
+	position: relative;
+	width: 49%;
+	
 	text-align: center;
 	float: left;
+	
+	margin: 0px;
+	height: auto;
+	padding-bottom: 45px;
+}
+
+.student-div-content
+{
+	text-align: left;
+}
+
+.tutor-div-content
+{
+	text-align: left;
 }
 
 .Right_Main
@@ -167,7 +180,7 @@ p
 	font-size: 22px;
 	font-family: sans-serif;
 	width: 50%;
-	height: 100%;
+	height: auto;
 	
 	float: left;
 }
@@ -176,14 +189,18 @@ p
 {
 	background-color: #005B80;
 	color: #F4F6F5;
-	
+	position: relative;
 	font-size: 22px;
 	font-family: sans-serif;
 	
-	width: 50%;
-	height: 100%;
+	width: 49%;
 	text-align: center;
 	float: right;
+	
+
+	height: auto;
+	margin: 0px;
+	padding-bottom: 45px;
 }
 
 .Middle_Main
@@ -200,7 +217,8 @@ p
 	height: 100%;
 }
 
-.Images{
+.Images
+{
 	max-width: 100%;
 	max-height: 100%;
 	height: auto;
@@ -209,13 +227,14 @@ p
 	
 .Footer
 {
+	font-family: Roboto Condensed, sans-serif;
 	background-color: #2CC0A6;
-	height: 200px;
+	color: #F4F6F5;
+	height: 150px;
 	float: left;
-	position: absolute;
+	font-size: 20px;
     width: 100%;
-	bottom:-800px;
-
+	padding: 25px;
 }
 
 /*Pop up for login*/
@@ -314,6 +333,27 @@ a.boxclose{
 	margin-bottom: 10px;
 }
 
+.table_elements
+{
+	margin: 10px;
+}
+
+.myProgress 
+{
+  position: relative;
+  width: 100%;
+  height: 30px;
+  background-color: #ddd;
+  margin: 10px;
+}
+
+.myBar 
+{
+  position: absolute;
+  width: 1%;
+  height: 100%;
+  background-color: rgb(66,186,233);
+}
 input
 {
 	text-align: center;
@@ -391,7 +431,7 @@ input:focus
 #student-img
 {
 	margin-top: 44px;
-	margin-bottom: 23px;
+	margin-bottom: 37px;
 	
 }
 
@@ -404,6 +444,25 @@ input:focus
 	height: 200px;
 }
 
+#student-name
+{
+	margin-top: 0px;
+	text-align: left;
+
+}
+
+#student-profilepic-dash
+{
+	width: 150px;
+	height: 150px;
+	float: left;
+	margin-right: 45px;
+}
+
+#ratings
+{
+	margin-bottom: 10px;
+}
 /*--------------------------------------------------------------*/
 /* MOBILE STYLING 												*/
 /*--------------------------------------------------------------*/
@@ -568,6 +627,18 @@ body
 		width: 100%;
 		float: left;
 	}
+	
+	.Right_Partial
+	{
+		float: left;
+		width: 100%;
+	}
+	
+	.Left_Partial
+	{
+		width: 100%;
+	}
+	
 }
 
 @media only screen and (max-width:767px)

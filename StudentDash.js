@@ -202,13 +202,3 @@ function monthChooser(button, direction)
 }
 
 calendarBuilder();
-
-$(".calendar").on("swipeleft", function()
-{
-    monthChooser("arrows", "next");
-});
-
-$(".calendar").on("swiperight", function()
-{
-    monthChooser("arrows", "previous");
-});
