@@ -354,6 +354,53 @@ a.boxclose{
   height: 100%;
   background-color: rgb(66,186,233);
 }
+
+.optionChild
+{
+	margin-left: 20px;
+	font-family: Roboto Condensed, sans-serif;
+	color: #42BAE9;
+}
+
+.subOptionChild
+{
+	margin-left: 30px;
+}
+
+.subject-select
+{
+	border-radius: 5px;
+	border: none;
+	width: 350px;
+	height: 300px;
+	padding: 25px;
+	font-family: Roboto Condensed, sans-serif;
+}
+
+.subOptGroup
+{
+	margin-left: 10px;
+	font-family: Roboto Condensed, sans-serif;
+	color: #008793;
+}
+
+option:checked
+{
+    box-shadow: 0 0 10px 100px #1ABC9C inset;
+    transition: all .2s ease-in-out;
+	width: 100%;
+	margin-left: 0px;
+	border: none;
+}
+			
+optgroup
+{
+	text-decoration: none;
+	font-family: Roboto Condensed, sans-serif;
+	color: #008793;
+	font-size: 18px;
+}
+
 input
 {
 	text-align: center;
@@ -373,6 +420,17 @@ input:focus
 	box-shadow: none;
 }
 
+.studentSelect
+{
+	border-radius: 5px;
+	font-family: Roboto Condensed, sans-serif;
+	color: #008793;
+	width: 300px;
+	height: 40px;
+	border: none;
+	margin-top: 25px;
+	font-size: 18px;
+}
 .btn
 {
 	border: 2px solid transparent;
