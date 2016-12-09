@@ -25,45 +25,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script type="text/javascript">
 	
-			var contactObject = {};
-		$(document).ready(function(){
-			//Get Values stored in contact us and store them in an object to be sent to the server
-            $("#AccountSubmit").click(function()
-            {
-				var selectName = document.getElementById("FirstName").value;
-				var selectEmail = document.getElementById("NewEmail").value;
 
-				
-				if ($.trim(selectEmail).length === 0 || selectName==="" || selectMessage==="") {
-					alert('All fields are mandatory');
-					//e.preventDefault();
-					}
-				if (validateEmail(selectEmail)) {
-					console.log("Valid Email");
-					contactObject.name = selectName;
-					contactObject.email = selectEmail;
-					contactObject.message = selectMessage;
-				}
-				else {
-					alert('Invalid Email Address');
-					//e.preventDefault();
-				}
-				//Test object
-				//console.log(contactObject);
-				//console.log("Submitted");
-            });
-		});
-		
-			// Function that validates email address through a regular expression.
-			function validateEmail(sEmail) {
-				var filter = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
-				if (filter.test(sEmail)) {
-					return true;
-				}
-				else {
-					return false;
-				}
-			}
 	
 	$(document).ready(function(){
 			//Check for cookie to populate name
