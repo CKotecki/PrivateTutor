@@ -85,16 +85,18 @@
             </div>
  
             <div class="menu">
-                  <ul id = "menu_items">
+                <ul id = "menu_items">
                     <li><a href="Index.html" id="menu_nav_links">Home</a></li>
                     <li><hr id = "menu_divider"></li>
-                    <li><a href="StudentDash.html" id="menu_nav_links">My Dashboard</a></li>
+                    <li><a href="StudentDash.html" id="menu_nav_links">Student Dashboard</a></li>
                     <li><hr id = "menu_divider"></li>
+					<li><a href="TutorPage.html" id="menu_nav_links">Tutor Dashboard</a></li>
+					<li><hr id = "menu_divider"></li>
                     <li><a href="Settings.html" id="menu_nav_links">Settings</a></li>
                     <li><hr id = "menu_divider"></li>
-                    <li></li><a href="ContactUs.html" id="menu_nav_links">Contact</a></li>
+                    <li><a href="ContactUs.html" id="menu_nav_links">Contact</a></li>
                 </ul>
-          </div>
+            </div>
   </div>	
 		
 	<div class="Main">	
@@ -241,6 +243,62 @@
     <script src="StudentDash.js"></script>
     <script src="Menu.js"></script>
 	<script src="TutorRating.js"></script>
+	
+	<script>
+		function viewAccountInfo() {
+          
+            if(typeof(Storage) !== "undefined") {
+           
+            		var username;
+                    var firstName;
+                    var lastName;
+					var email;
+					var password;
+					var telephone;
+                    var address;
+                    var city;
+					var state;
+                    //var StudentTutor;
+               
+			   if (localStorage.username !== "undefined") {                  
+                   username = localStorage.getItem("UserName");       
+               }
+               if (localStorage.firstName !== "undefined") { 
+                    firstName = localStorage.getItem("FirstName");
+               }
+               if (localStorage.lastName !== "undefined") {
+                   lastName = localStorage.getItem("LastName");
+               }
+               if (localStorage.email !== "undefined") {
+                     email = localStorage.getItem("NewEmail");
+               }
+               if (localStorage.password !== "undefined") {
+                     password = localStorage.getItem("newPassword");
+			   }	 
+			   if (localStorage.telephone !== "undefined") {
+                  
+					telephone = localStorage.getItem("TelephoneNumber");
+                 
+               }
+               if (localStorage.address !== "undefined") { 
+                    address = localStorage.getItem("Address");
+               }
+               if (localStorage.city !== "undefined") {
+                   city = localStorage.getItem("City");
+               }
+               if (localStorage.state !== "undefined") {
+                     state = localStorage.getItem("State");
+               }
+               			   
+			  $('#student-name').text(firstName + " " + lastName);
+			   
+            } else {
+                $("#accountInfo").html("Sorry, your browser does not support web storage...");
+            }
+        }
+		
+		viewAccountInfo();
+	</script>
 	
 	<script>
 		//SCROLL RESUME EXPERIENCE BARS FUNCTION	
