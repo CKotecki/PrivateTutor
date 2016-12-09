@@ -354,7 +354,6 @@ a.boxclose{
   height: 100%;
   background-color: rgb(66,186,233);
 }
-<<<<<<< HEAD
 
 .optionChild
 {
@@ -401,8 +400,6 @@ optgroup
 	font-size: 18px;
 }
 
-=======
->>>>>>> parent of c460512... Fixed subject select
 input
 {
 	text-align: center;
@@ -422,6 +419,17 @@ input:focus
 	box-shadow: none;
 }
 
+.studentSelect
+{
+	border-radius: 5px;
+	font-family: Roboto Condensed, sans-serif;
+	color: #008793;
+	width: 300px;
+	height: 40px;
+	border: none;
+	margin-top: 25px;
+	font-size: 18px;
+}
 .btn
 {
 	border: 2px solid transparent;
