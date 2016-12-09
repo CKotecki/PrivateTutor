@@ -146,8 +146,8 @@
 					Positive Reviews: 45 </br> 
 					Total Reviews: 49
 				</p>	
-								
-				<h3 id="student-about-me">About Me</h2>
+				<h2 style="text-align: left;" >About Me</h2></br>			
+				<h2 id="student-about-me"></h2>
 								
 				<div class="skill_bars">
 						<table>
@@ -292,6 +292,8 @@
                     var address;
                     var city;
 					var state;
+				    var hobbies;
+				    var background;
                     //var StudentTutor;
                
 			   if (localStorage.username !== "undefined") {                  
@@ -323,8 +325,15 @@
                if (localStorage.state !== "undefined") {
                      state = localStorage.getItem("State");
                }
-               			   
+		
+			   if (localStorage.background !== "undefined") {                  
+                   background = localStorage.getItem("Background");       
+               }
+			   if (localStorage.hobbies !== "undefined") {                  
+                   hobbies = localStorage.getItem("Hobbies");       
+               }	   
 			  $('#student-name').text(firstName + " " + lastName);
+			  $('#student-about-me').text(background + ' ' + hobbies);
 			   
             } else {
                 $("#accountInfo").html("Sorry, your browser does not support web storage...");
