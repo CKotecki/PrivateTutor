@@ -84,22 +84,26 @@
     });
 	
 		   // Save user datat in local storage. 
-    function nextPage(num) {
-        
+    $(function() {
+        $("#AccountSubmit").click(function(){
         
             saveAccount();
             clearBoxes();
-			if (num == 1){
-				window.location = 'StudentDash.html';
-			}else{
-				window.location = 'TutorPage.html';
-			}
+			getExtra();
            
-        }
+        })
         
+        $("#btnViewAccount").click(function(){
+           
+            viewAccountInfo();
+        })
         
-
-	
+         $("#btnClearAccount").click(function(){
+           
+            clearAccountInfo();
+        })
+		
+    });
       
       function clearBoxes() {
           $('#tblContainer').find('input:text').each(
@@ -112,7 +116,8 @@
           
             if(typeof(Storage) !== "undefined") {
           
-               
+					var background = $("#Background").val();
+					var hobbies = $("#Hobbies").val();	
 					var username = $("#UserName").val();
                     var firstName = $("#FirstName").val();
                     var lastName = $("#LastName").val();
@@ -122,9 +127,11 @@
                     var address = $("#Address").val();
                     var city = $("#City").val();
 					var state = $("#State").val();
-                    //var StudentTutor = $("#choice").val();
-					
+
+
 					localStorage.setItem("UserName", username);
+					localStorage.setItem("Background", background);
+					localStorage.setItem("Hobbies", hobbies);					
 					localStorage.setItem("FirstName", firstName);
 					localStorage.setItem("LastName", lastName);
 					localStorage.setItem("NewEmail", email);
@@ -134,16 +141,16 @@
 					localStorage.setItem("Address", address);
 					localStorage.setItem("City", city);
 					localStorage.setItem("State", state);
-					//localStorage.setItem("choice", StudentTutor);
+
 					
-					//$("#accountInfo").html("Account Saved!");
-			   
-               
+
+					$("#extraInfo").html("Hobbies and Background Saved!");
+
+        
             } else {
-                $("#accountInfo").html("Sorry, your browser does not support web storage...");
+                $("#extraInfo").html("Sorry, your browser does not support web storage...");
             }
         }
-        
         
         function viewAccountInfo() {
           
@@ -269,20 +276,20 @@
       <td><input type="text" id="UserName"></td>
     </tr>
     <tr>
-      <td>first Name</td>
+      <td>First Name</td>
       <td><input type="text" id="FirstName"></td>
     </tr>
     <tr>
-      <td>Last Name:</td>
+      <td>Last Name</td>
       <td><input type="text" id="LastName"></td>
     </tr>
     <tr>
-      <td>Enter a Valid Email Address:</td>
+      <td>Enter a Valid Email Address</td>
       <td><input type="email" id="NewEmail"></td>
 
     </tr>
     <tr>
-      <td>Enter A password:</td>
+      <td>Enter A password</td>
       <td><input type="password" id="newPassword" name="passwd" > 
       <span id="password_mystrength"></span></td>
     </tr>
@@ -304,9 +311,10 @@
     </tr>
 
 	<tr>
-     <td>To save select tutor or student.</td>
-     <td><button id="AccountSubmit" onclick="window.location='StudentDash.html';">Student</button></td>
-	<td><button id="AccountSubmit"  onclick="window.location='TutorPage.html';" >Tutor</button></td>
+     <td>Save then select tutor or student.</td>
+	 <td><button id="AccountSubmit" >Submit</button>
+    <button id="AccountSubmit" onclick="window.location='StudentDash.html';">Student</button>
+	<button id="AccountSubmit"  onclick="window.location='TutorPage.html';" >Tutor</button></td>
 
     </tr>
   </tbody>
