@@ -20,8 +20,54 @@
         <link rel="stylesheet" type="text/css" href="font-awesome-4.6.3/css/font-awesome.css">
         
         <link rel="stylesheet" type="text/css" href="SiteStyle.css">
+
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="modal.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		
+		<script>
+		$(document).ready(function(){
+			//Check for cookie to populate name
+			checkCookie();
+		});
+		//get Cookie
+		function getCookie(cname) {
+		var name = cname + "=";
+		var ca = document.cookie.split(';');
+		for(var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ') {
+				c = c.substring(1);
+			}
+			if (c.indexOf(name) === 0) {
+				return c.substring(name.length, c.length);
+			}
+		}
+		return "";
+	}
+		
+		//Check for user name
+		function checkCookie() {
+		console.log("Checking Cookie");
+		var user = getCookie("username");
+		if (user !== "") {
+			//alert("Welcome again " + user);
+			//Set test to Sign in
+			$('#UserName').text(user);
+			console.log(user);
+		} else {
+			$('#UserName').text("Sign In");
+		//   user = prompt("Please enter your name:","");
+		//   if (user !== "" && user !== null) {
+		//	   setCookie("username", "Sign In", 30);
+				
+			}
+		}
+			
+
+        </script>
     </head>  
     
   <body>
@@ -186,7 +232,7 @@
 
 			<p style="margin: 0px; margin-top: 45px;">Communicate with student</p>
 			<textarea cols="15"></textarea>
-			<input type="button" value="Send">
+			<input type="button" value="Send" id="send">
 			 
 			</div>
 		</div>
@@ -201,6 +247,30 @@
 		</div>
 		
 		<div class="main"></div>
+		
+				<!-- The Modal -->
+		<div id="myModal" class="modal">
+		
+		  <!-- Modal content -->
+		  <div class="modal-content">
+			<span class="close">&times;</span>
+			<table>
+				<tr>
+					<td>Student:</td>
+					<td>Curtis</td>
+				</tr>
+				<tr>
+					<td>Time:</td>
+					<td>8:00 PM</td>
+				</tr>
+				<tr>
+					<td>Location:</td>
+					<td>The Rhino</td>
+				</tr>
+			</table>
+		  </div>
+		
+		</div>
   </body>
   
       <!--SCRIPT REFERENCES-->
@@ -301,5 +371,8 @@
 					triggered = true; 
 				}
 		});
+		
+
 	</script>
+	
   </html>

@@ -16,15 +16,13 @@
         <link rel="stylesheet" type="text/css" href="SiteStyle.css">
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
 		
 		
 		<script>
 		var contactObject = {};
 		$(document).ready(function(){
-			//get cookie for name
-			checkCookie();
-			
 			//Get Values stored in contact us and store them in an object to be sent to the server
             $("#Csubmit").click(function()
             {
@@ -51,42 +49,6 @@
 				//console.log("Submitted");
             });
 		});
-		
-
-			//get Cookie
-			function getCookie(cname) {
-			var name = cname + "=";
-			var ca = document.cookie.split(';');
-			for(var i = 0; i < ca.length; i++) {
-				var c = ca[i];
-				while (c.charAt(0) == ' ') {
-					c = c.substring(1);
-				}
-				if (c.indexOf(name) === 0) {
-					return c.substring(name.length, c.length);
-				}
-			}
-			return "";
-			}
-			
-			//Check for user name
-			function checkCookie() {
-			console.log("Checking Cookie");
-			var user = getCookie("username");
-			if (user !== "") {
-				//alert("Welcome again " + user);
-				//Set test to Sign in
-				$('#UserName').text(user);
-				console.log(user);
-			} else {
-				$('#UserName').text("Sign In");
-			//   user = prompt("Please enter your name:","");
-			//   if (user !== "" && user !== null) {
-			//	   setCookie("username", "Sign In", 30);
-					
-				}
-			}
-			
 		
 			// Function that validates email address through a regular expression.
 			function validateEmail(sEmail) {
@@ -115,19 +77,16 @@
                 </div>
                 
                  <div class="chip">
-                    <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">
-					<a id="UserName"></a>
+                    <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">John Doe
                 </div>
             </div>
             
             <div class="menu">
-                <ul id = "menu_items">
+                  <ul id = "menu_items">
                     <li><a href="Index.html" id="menu_nav_links">Home</a></li>
                     <li><hr id = "menu_divider"></li>
-                    <li><a href="StudentDash.html" id="menu_nav_links">Student Dashboard</a></li>
+                    <li><a href="StudentDash.html" id="menu_nav_links">My Dashboard</a></li>
                     <li><hr id = "menu_divider"></li>
-					<li><a href="TutorPage.html" id="menu_nav_links">Tutor Dashboard</a></li>
-					<li><hr id = "menu_divider"></li>
                     <li><a href="Settings.html" id="menu_nav_links">Settings</a></li>
                     <li><hr id = "menu_divider"></li>
                     <li><a href="ContactUs.html" id="menu_nav_links">Contact</a></li>
@@ -151,38 +110,32 @@
 					<td>Name</td>
 				  </tr>
 				  	<tr>
-					<td><input id="Cname" style="width:50%; min-width: 350px;"> </td>
+					<td><input id="Cname"> </td>
 				  </tr>
 					<tr>
 					<td>Email</td>
 				  </tr>
 				  <tr>
-					<td><input type="Email" id="Cemail" style="width:50%; min-width: 350px;"></td>
+					<td><input type="Email" id="Cemail"> </td>
 				  </tr>
 				  <tr>
 					<td>Message</td>
 					<td>&nbsp;</td>
 				  </tr>
 				  <tr>
-					<td><textarea id="Cmessage" style="width:50%; min-width: 350px;"> </textarea></td>
+					<td><textarea id="Cmessage"> </textarea></td>
 				  </tr>
 				  <tr>
-					<td align="center"><button style="width:25%" type="submit" id="Csubmit" align="center">Send</button></td>
+					<td align="center"><button style="width:30%" type="submit" id="Csubmit" align="center">Send</button></td>
 				  </tr>
 				</tbody>
 		  </table>
         </div>
 		
-        <div class="Footer">
-				<p style="margin: 0px;">
-					Lesson Logistics</br>
-					123 Living The Dream Drive</br>
-					lessonlog@pleaseworkatleastforthepresentation.com</br>
-					1-800-TUTOR
-				</p>
-			</div>
+        <div class="Footer"></div>
     </body>
     
     <!--SCRIPT REFERENCES-->
+    <script src="StudentDash.js"></script>
     <script src="Menu.js"></script>
 </html>

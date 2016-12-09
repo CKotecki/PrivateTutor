@@ -20,16 +20,18 @@
 
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
         <link rel="stylesheet" type="text/css" href="font-awesome-4.6.3/css/font-awesome.css">
         <link rel="stylesheet" type="text/css" href="SiteStyle.css">
         
         <script>
             $(document).ready(function(){
-				
                 $('#signIn').click(function(){
                      console.log("open");
+					 //Bring in log in box
                     $('#overlay').fadeIn(200,function(){
-                        $('#logPop').animate({'top':'400px'},200);
+                        $('#logPop').animate({'top':'375px'},200);
                     });
                      return false;
                 });
@@ -37,71 +39,13 @@
                 //Close log in box
                 $('#boxclose').click(function(){
                     console.log("close");
-                    $('#logPop').animate({'top':'-400px'},500,function(){
+                    $('#logPop').animate({'top':'-375px'},500,function(){
                         $('#overlay').fadeOut('fast');
                     });
 
                 });
-				
-				//sign in functions
-                $('#submit').click(function(){
-                    console.log("sign in");
-					var userName = $('#login-name').val();
-					$('#UserName').text(userName);
-					//Set username into cookie
-					setCookie("username", userName, 30);
-					console.log(userName);
-					var pass = $('#login-pass').val();
-					//Close the sign in box
-					//TODO - Check for validation with the back end
-                    $('#logPop').animate({'top':'-400px'},500,function(){
-                        $('#overlay').fadeOut('fast');
-                    });
-                });
-				//Check for cookies
-				checkCookie();
             });
-			
-			//Set cookie
-			function setCookie(cname,cvalue,exdays) {
-				var d = new Date();
-				d.setTime(d.getTime() + (exdays*24*60*60*1000));
-				var expires = "expires=" + d.toGMTString();
-				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-			}
             
-			//get Cookie
-			function getCookie(cname) {
-			var name = cname + "=";
-			var ca = document.cookie.split(';');
-			for(var i = 0; i < ca.length; i++) {
-				var c = ca[i];
-				while (c.charAt(0) == ' ') {
-					c = c.substring(1);
-				}
-				if (c.indexOf(name) === 0) {
-					return c.substring(name.length, c.length);
-				}
-			}
-			return "";
-		}
-			
-			//Check for user name
-			function checkCookie() {
-			console.log("Checking Cookie");
-			var user = getCookie("username");
-			if (user !== "") {
-				//alert("Welcome again " + user);
-				//Set test to Sign in
-				$('#UserName').text(user);
-			} else {
-				$('#UserName').text("Sign In");
-			//   user = prompt("Please enter your name:","");
-			//   if (user !== "" && user !== null) {
-			//	   setCookie("username", "Sign In", 30);
-					
-				}
-			}
         </script>
 
        
@@ -124,8 +68,7 @@
                 
                  <div class="chip" id="signIn">
                     <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">
-					
-                    <a id="UserName">Sign In</a>
+                    Sign In
                 </div>
             </div>
       
@@ -133,10 +76,8 @@
                 <ul id = "menu_items">
                     <li><a href="Index.html" id="menu_nav_links">Home</a></li>
                     <li><hr id = "menu_divider"></li>
-                    <li><a href="StudentDash.html" id="menu_nav_links">Student Dashboard</a></li>
+                    <li><a href="StudentDash.html" id="menu_nav_links">My Dashboard</a></li>
                     <li><hr id = "menu_divider"></li>
-					<li><a href="TutorPage.html" id="menu_nav_links">Tutor Dashboard</a></li>
-					<li><hr id = "menu_divider"></li>
                     <li><a href="Settings.html" id="menu_nav_links">Settings</a></li>
                     <li><hr id = "menu_divider"></li>
                     <li><a href="ContactUs.html" id="menu_nav_links">Contact</a></li>
@@ -149,20 +90,11 @@
                 <img src="students.png" id="student-img" class="Images">
                  <h2>STUDENTS</h2>
                  
-                <p class="student-div-content">
+                <p>
                    Improve your math grade and get through homework faster. Our expert tutors are available to help you 24/7. Whether you need help at 11PM with Algebra I or want to recap geometry concepts before class, our tutors are here to help. From statistics and pre-algebra to geometry and calculus, we cover it all.
 
 				Stuck on Algebraic expressions the night before a test? Log on and connect to a tutor. It's that easy. Online access means you can get help the moment you need it. Grasp the basics of algebra or review geometry proofs. No matter the topic or the time, we have a tutor that is ready to help.
                 </p>
-				
-				 <h2>Why you should use Lesson Logistics</h2>
-                <ul class="student-div-content">
-                    <li>Find tutors quickly and efficiently</li>
-                    <li>Find tutors who can meet your learning needs</li>
-                    <li>Schedule sessions</li>
-                    <li>Pay online</li>
-                    <li>Receive help 24/7</li>
-                </ul>
             </div>
             
 
@@ -172,31 +104,16 @@
                 
                 <h2 style="color: #F4F6F5">TUTORS</h2>
                    
-                <p class="tutor-div-content">
+                <p>
                     To be an online tutor you need to have a good grasp of the concepts in the subject you want to tutor in. Having the ability to relate topics to real-world examples and explain them to the students helps students understand how they can apply what they are learning.
+
 					Good communication skills and lots of patience are essential too. Sometimes it is very difficult to tutor someone online who might not have the basic foundation for the particular subject. As the tutor, you have to detect, adapt, and teach to the student so that they can fully understand the concept.
                 </p>
-				
-				<h2 style="color: #F4F6F5">Why you should use Lesson Logistics</h2>
-                <ul class="student-div-content">
-                    <li>Build the reputation you deserve</li>
-                    <li>Make your presence known, and take your business online and broaden your prospects</li>
-                    <li>Schedule sessions</li>
-                    <li>Manage your payments online</li>
-                    <li>Provide online materials and resources</li>
-                </ul>
             </div>
-			
-			<div class="Footer">
-				<p style="margin: 0px;">
-					Lesson Logistics</br>
-					123 Living The Dream Drive</br>
-					lessonlog@pleaseworkatleastforthepresentation.com</br>
-					1-800-TUTOR
-				</p>
-			</div>
         </div>
-                
+        
+ 	<div class="Footer"></div>
+        
             <!--Login Form-->
             <div class="box" id="logPop">
                 <div class="login">

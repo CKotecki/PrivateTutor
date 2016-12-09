@@ -15,57 +15,22 @@
         
         <!--EXTERNAL SCRIPT IMPORTS-->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="font-awesome-4.6.3/css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="font-awesome-4.6.3/font-awesome-4.6.3/css/font-awesome.css">
         
         <link rel="stylesheet" type="text/css" href="SiteStyle.css">
-        
+        <script src="./js/jquery-1.11.3.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script src="./js/jquery-1.11.3.js"></script>
-		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
-
-			$(document).ready(function(){
-				//Check for cookie to populate name
-				checkCookie();
-			});
-			//get Cookie
-			function getCookie(cname) {
-			var name = cname + "=";
-			var ca = document.cookie.split(';');
-			for(var i = 0; i < ca.length; i++) {
-				var c = ca[i];
-				while (c.charAt(0) == ' ') {
-					c = c.substring(1);
-				}
-				if (c.indexOf(name) === 0) {
-					return c.substring(name.length, c.length);
-				}
-			}
-			return "";
-		}
-			
-			//Check for user name
-			function checkCookie() {
-			console.log("Checking Cookie");
-			var user = getCookie("username");
-			if (user !== "") {
-				//set text for username
-				$('#UserName').text(user);
-				console.log(user);
-			} else {
-				$('#UserName').text("Sign In");
-					
-				}
-			}
-			
-
 		
     $(function () {
         $("#newPassword").bind("keyup", function () {
             //TextBox left blank.
-            if ($(this).val().length === 0) {
+            if ($(this).val().length == 0) {
                 $("#password_mystrength").html("");
                 return;
             }
@@ -128,17 +93,17 @@
             clearBoxes();
 
            
-        });
+        })
         
         $("#btnViewAccount").click(function(){
            
             viewAccountInfo();
-        });
+        })
         
          $("#btnClearAccount").click(function(){
            
             clearAccountInfo();
-        });
+        })
 		
     });
       
@@ -163,7 +128,7 @@
                     var address = $("#Address").val();
                     var city = $("#City").val();
 					var state = $("#State").val();
-                    //var StudentTutor = $("#choice").val();
+                    <!--var StudentTutor = $("#choice").val();
 					
 					localStorage.setItem("UserName", username);
 					localStorage.setItem("FirstName", firstName);
@@ -175,7 +140,7 @@
 					localStorage.setItem("Address", address);
 					localStorage.setItem("City", city);
 					localStorage.setItem("State", state);
-					//localStorage.setItem("choice", StudentTutor);
+					<!--localStorage.setItem("choice", StudentTutor);
 					
 
 					$("#accountInfo").html("Account Saved!");
@@ -200,7 +165,7 @@
                     var address;
                     var city;
 					var state;
-                    var StudentTutor;
+                    <!--var StudentTutor;
                
 			   if (localStorage.username !== "undefined") {                  
                    username = localStorage.getItem("UserName");       
@@ -231,8 +196,8 @@
                if (localStorage.state !== "undefined") {
                      state = localStorage.getItem("State");
                }
-               if (localStorage.StudentTutor !== "undefined") {
-                    StudentTutor = localStorage.getItem("choice");
+               <!--if (localStorage.StudentTutor !== "undefined") {
+                   <!--  StudentTutor = localStorage.getItem("choice");
 			   
 			  // this allows us to iterate through all the local storage items
               for (var i = 0; i < localStorage.length; i++){
@@ -244,7 +209,7 @@
                 $("#accountInfo").html("Sorry, your browser does not support web storage...");
             }
         }
-		}
+        
         function clearAccountInfo() {
           
             if(typeof(Storage) !== "undefined") {
@@ -284,22 +249,19 @@
                 </div>
                 
                  <div class="chip">
-                    <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">
-					<a id="UserName"></a>
+                    <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">John Doe
                 </div>
             </div>
             
             <div class="menu">
-                <ul id = "menu_items">
+                  <ul id = "menu_items">
                     <li><a href="Index.html" id="menu_nav_links">Home</a></li>
                     <li><hr id = "menu_divider"></li>
-                    <li><a href="StudentDash.html" id="menu_nav_links">Student Dashboard</a></li>
+                    <li><a href="StudentDashboard.html" id="menu_nav_links">My Dashboard</a></li>
                     <li><hr id = "menu_divider"></li>
-					<li><a href="TutorPage.html" id="menu_nav_links">Tutor Dashboard</a></li>
-					<li><hr id = "menu_divider"></li>
                     <li><a href="Settings.html" id="menu_nav_links">Settings</a></li>
                     <li><hr id = "menu_divider"></li>
-                    <li><a href="ContactUs.html" id="menu_nav_links">Contact</a></li>
+                    <li<a href="ContactUs.html" id="menu_nav_links">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -314,20 +276,20 @@
       <td><input type="text" id="UserName"></td>
     </tr>
     <tr>
-      <td>First Name</td>
+      <td>first Name</td>
       <td><input type="text" id="FirstName"></td>
     </tr>
     <tr>
-      <td>Last Name</td>
+      <td>Last Name:</td>
       <td><input type="text" id="LastName"></td>
     </tr>
     <tr>
-      <td>Enter a Valid Email Address</td>
+      <td>Enter a Valid Email Address:</td>
       <td><input type="email" id="NewEmail"></td>
 
     </tr>
     <tr>
-      <td>Enter a Password</td>
+      <td>Enter A password:</td>
       <td><input type="password" id="newPassword" name="passwd" > 
       <span id="password_mystrength"></span></td>
     </tr>
@@ -349,7 +311,7 @@
     </tr>
 
 	<tr>
-     <td>Please pick Tutor or Student.</td>
+     <td>Please check the if you want to be a tutor or student.</td>
      <td> 
 	<select name="customers" onchange="">
 		<option value="tutor" id="choice">Tutor</option>
@@ -374,24 +336,17 @@
 
 		<p><div id="accountInfo"></div></p>
 		<div> 
-			We do not collect money through our website for payment purposes we recommend the use of <a href="https://www.paypal.com/">PayPal</a>. 
+			We do not collect money through our website for payment purposes we recommend the use of<a href="https://www.paypal.com/"> PayPal</a>. 
 			</br>If you have an account already created
-			feel free to use your personal account or create an account by going to the following link. <a href="https://www.paypal.com/">https://www.paypal.com/</a></br>
+			feel free to use your personal account or create an account by going to the following link. <a href="https://www.paypal.com/"> https://www.paypal.com/ </a></br>
 		
-			For communication purposes or scheduling we recommend using <a href="https://youcanbook.me/">You can Book me</a> at <a href="https://youcanbook.me/">https://youcanbook.me/</a>. </br>
+			For communication purposes or scheduling we recommend using<a href="https://youcanbook.me/">  You can Book me</a> at<a href="https://youcanbook.me/"> https://youcanbook.me/</a>. </br>
 			It is a free online scheduling source for both students and tutors.
 			If that does not work, you can email your tutor or student. 
 		</div>
 			<p></p>
         </div>
-        <div class="Footer">
-				<p style="margin: 0px;">
-					Lesson Logistics</br>
-					123 Living The Dream Drive</br>
-					lessonlog@pleaseworkatleastforthepresentation.com</br>
-					1-800-TUTOR
-				</p>
-			</div>
+        <div class="Footer"></div>
     </body>
     
     <!--SCRIPT REFERENCES-->

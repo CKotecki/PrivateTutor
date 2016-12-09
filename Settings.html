@@ -7,7 +7,7 @@
 
 <html>
     <head>
-        <title>Lesson Logistics - Settings</title>
+        <title>Lesson Logistics - Account Creation</title>
         
         <!--META DATA-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,63 +15,21 @@
         
         <!--EXTERNAL SCRIPT IMPORTS-->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="font-awesome-4.6.3/css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="font-awesome-4.6.3/font-awesome-4.6.3/css/font-awesome.css">
         
         <link rel="stylesheet" type="text/css" href="SiteStyle.css">
-        
+        <script src="./js/jquery-1.11.3.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script src="./js/jquery-1.11.3.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	 
-		 
-<script>
-	
-			$(document).ready(function(){
-				//Check for cookie to populate name
-				checkCookie();
-			});
-			//get Cookie
-			function getCookie(cname) {
-			var name = cname + "=";
-			var ca = document.cookie.split(';');
-			for(var i = 0; i < ca.length; i++) {
-				var c = ca[i];
-				while (c.charAt(0) == ' ') {
-					c = c.substring(1);
-				}
-				if (c.indexOf(name) === 0) {
-					return c.substring(name.length, c.length);
-				}
-			}
-			return "";
-		}
-			
-			//Check for user name
-			function checkCookie() {
-			console.log("Checking Cookie");
-			var user = getCookie("username");
-			if (user !== "") {
-				//alert("Welcome again " + user);
-				//Set test to Sign in
-				$('#UserName').text(user);
-				console.log(user);
-			} else {
-				$('#UserName').text("Sign In");
-			//   user = prompt("Please enter your name:","");
-			//   if (user !== "" && user !== null) {
-			//	   setCookie("username", "Sign In", 30);
-					
-				}
-			}
-			
-
-        
-	
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
     $(function () {
         $("#txtmyPassword").bind("keyup", function () {
             //TextBox left blank.
-            if ($(this).val().length === 0) {
+            if ($(this).val().length == 0) {
                 $("#password_mystrength").html("");
                 return;
             }
@@ -132,21 +90,20 @@
         $("#AccountSubmit").click(function(){
         
             saveAccount();
-			getExtra();
             clearBoxes();
-
+			getExtra();
            
-        });
+        })
         
         $("#btnViewAccount").click(function(){
            
             viewAccountInfo();
-        });
+        })
         
          $("#btnClearAccount").click(function(){
            
             clearAccountInfo();
-        });
+        })
 		
     });
       
@@ -173,7 +130,7 @@
                     var address = $("#Address").val();
                     var city = $("#City").val();
 					var state = $("#State").val();*/
-                    //var StudentTutor = $("#choice").val();
+                    <!--var StudentTutor = $("#choice").val();
 	
 					localStorage.setItem("Background", background);
 					localStorage.setItem("Hobbies", hobbies);
@@ -188,7 +145,7 @@
 					localStorage.setItem("Address", address);
 					localStorage.setItem("City", city);
 					localStorage.setItem("State", state);*/
-					//localStorage.setItem("choice", StudentTutor);
+					<!--localStorage.setItem("choice", StudentTutor);
 					
 
 					$("#extraInfo").html("Hobbies and Background Saved!");
@@ -283,13 +240,19 @@
         
         function clearAccountInfo() {
           
-            if(typeof(Storage) !== "undefined") {                   
+            if(typeof(Storage) !== "undefined") {
+           
+              
+               
                // this allows us to iterate through all the local storage items
               for (var i = 0; i < localStorage.length; i++){
                     var key = localStorage.key(i);
                     localStorage.removeItem(key);
-               }                  
-               $("#accountInfo").html("Local Storage Cleared");                           
+               }
+                   
+               $("#accountInfo").html("Local Storage Cleared");
+               
+                
             } else {
                 $("#accountInfo").html("Sorry, your browser does not support web storage...");
             }
@@ -314,19 +277,16 @@
                 </div>
                 
                  <div class="chip">
-                    <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">
-					<a id="UserName"></a>
+                    <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">John Doe
                 </div>
             </div>
             
             <div class="menu">
-                <ul id = "menu_items">
+                  <ul id = "menu_items">
                     <li><a href="Index.html" id="menu_nav_links">Home</a></li>
                     <li><hr id = "menu_divider"></li>
-                    <li><a href="StudentDash.html" id="menu_nav_links">Student Dashboard</a></li>
+                    <li><a href="StudentDash.html" id="menu_nav_links">My Dashboard</a></li>
                     <li><hr id = "menu_divider"></li>
-					<li><a href="TutorPage.html" id="menu_nav_links">Tutor Dashboard</a></li>
-					<li><hr id = "menu_divider"></li>
                     <li><a href="Settings.html" id="menu_nav_links">Settings</a></li>
                     <li><hr id = "menu_divider"></li>
                     <li><a href="ContactUs.html" id="menu_nav_links">Contact</a></li>
