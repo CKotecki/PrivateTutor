@@ -121,7 +121,7 @@
 					var background = $("#Background").val();
 					var hobbies = $("#Hobbies").val();
 					
-					/*var username = $("#UserName").val();
+					var username = $("#UserName").val();
                     var firstName = $("#FirstName").val();
                     var lastName = $("#LastName").val();
 					var email = $("#NewEmail").val();
@@ -129,12 +129,12 @@
 					var telephone = $("#TelephoneNumber").val();
                     var address = $("#Address").val();
                     var city = $("#City").val();
-					var state = $("#State").val();*/
-                    <!--var StudentTutor = $("#choice").val();
+					var state = $("#State").val();
+                    //var StudentTutor = $("#choice").val();
 	
 					localStorage.setItem("Background", background);
 					localStorage.setItem("Hobbies", hobbies);
-					/*
+					
 					localStorage.setItem("UserName", username);
 					localStorage.setItem("FirstName", firstName);
 					localStorage.setItem("LastName", lastName);
@@ -144,8 +144,8 @@
 					localStorage.setItem("lastname", lastName);
 					localStorage.setItem("Address", address);
 					localStorage.setItem("City", city);
-					localStorage.setItem("State", state);*/
-					<!--localStorage.setItem("choice", StudentTutor);
+					localStorage.setItem("State", state);
+					//localStorage.setItem("choice", StudentTutor);
 					
 
 					$("#extraInfo").html("Hobbies and Background Saved!");
@@ -228,11 +228,9 @@
                    <!--  StudentTutor = localStorage.getItem("choice");
 			   
 			  // this allows us to iterate through all the local storage items
-              for (var i = 0; i < localStorage.length; i++){
-                    var key = localStorage.key(i);
-                    $('#accountInfo').append("</br>" + key + "   :        " + localStorage.getItem(key) );
-               }
-			   
+				$('#getUserName').val(username);
+
+				
             } else {
                 $("#accountInfo").html("Sorry, your browser does not support web storage...");
             }
@@ -301,13 +299,55 @@
 		 
             <table width="70%" >
   <tbody width="60">
+  <tr>
+      <td>User Name</td>
+	  <td><h2 id="getUserName">John Doe</h2></td>
+      <td><input type="text" id="UserName"></td>
+    </tr>
+    <tr>
+      <td>First Name</td>
+
+      <td><input type="text" id="FirstName"></td>
+    </tr>
+    <tr>
+      <td>Last Name</td>
+
+      <td><input type="text" id="LastName"></td>
+    </tr>
+    <tr>
+      <td>Enter a Valid Email Address</td>
+
+      <td><input type="email" id="NewEmail"></td>
+
+    </tr>
+    <tr>
+      <td>Enter A password</td>
+      <td><input type="password" id="newPassword" name="passwd" > 
+      <span id="password_mystrength"></span></td>
+    </tr>
+    <tr>
+      <td>Phone Number</td>
+      <td><input type="tel" id="TelephoneNumber"></td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td><input type="text" id="Address"></td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td><input type="text" id="City"></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td><input type="text" id="State"></td>
+    </tr>
     <tr>
       <td>Background</td>
-      <td><textarea type="text" id="Background"></textarea></td>
+      <td><input type="text" id="Background"></td>
     </tr>
     <tr>
       <td>Hobbies</td>
-      <td><textarea type="text" id="Hobbies"></textarea></td>
+      <td><input type="text" id="Hobbies"></td>
     </tr>
     <tr>
       <td>Resume</td>
