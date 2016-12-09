@@ -197,37 +197,31 @@
 			<div style="width: 30%;">
 				<h3 style="margin-top: 45px; text-align: left;">Subjects</h3>
 				
-				<select multiple="multiple" class="subject-select">
-				   <optgroup label="Mathematics">
-					  <option value="Algebra" class="optionChild">Algebra</option>
-					  <option value="Calculus" class="optionChild">Calculus</option>
-					  <option value="Geometry" class="optionChild">Geometry</option>
-					  <option value="Trigonometry" class="optionChild">Trigonometry</option>
-				   </optgroup>
-				   
-				   <optgroup label="Natural Sciences">
-						<option value="Physics" class="subOptGroup">Physics</option>
-							<option value="Classical Physics" class="optionChild">Classical Physics</option>
-							<option value="Modern Physics" class="optionChild">Modern Physics</option>
-							<option value="Quantum Physics" class="optionChild">Quantum Physics</option>
-									   
-						<option value="Chemistry" class="subOptGroup">Chemistry</option>
-							<option value="Bio Chemistry" class="optionChild">Bio Chemistry</option>
-							<option value="Organic Chemistry" class="optionChild">Organic Chemistry</option>
-							
-						<option value="Biology" class="subOptGroup">Biology</option>
-							<option value="Microbiology" class="optionChild">Microbiology</option>
-							<option value="Ecology" class="optionChild">Ecology</option>
-							<option value="Virology" class="optionChild">Virology</option>
-				   </optgroup>
+				<label>
+					<input type="checkbox" name="Subjects" value="checkbox" id="Subjects_0">
+					Mathematics</label>
+				<label>
+					<input type="checkbox" name="Subjects" value="checkbox" id="Subjects_1">
+					Computer Science</label>
+				<label>
+					<input type="checkbox" name="Subjects" value="checkbox" id="Subjects_2">
+					U.S. History</label>
+				<label>
+					<input type="checkbox" name="Subjects" value="checkbox" id="Subjects_3">
+					Physics</label>
+				<label>
+					<input type="checkbox" name="Subjects" value="checkbox" id="Subjects_4">
+					Sociology</label>
+				<input type="submit">
+					<p><h3 style="margin-top: 45px; text-align: left;">Select a student:</h3></p>
+				<form>
+
+				<select name="Your Students" title="Your Students">
+					<option value="Clayton">Clayton</option>
+					<option value="Luke">Luke</option>
+					<option value="Curtis" selected>Curtis</option>
 				</select>
-				
-				<select name="Your Students" title="Your Students" class="studentSelect">
-						<option value="Clayton">Clayton</option>
-						<option value="Luke">Luke</option>
-						<option value="Curtis" selected>Curtis</option>
-					</select>
-				</form>
+			</form>
 
 
 			<p style="margin: 0px; margin-top: 45px;">Communicate with student</p>
@@ -344,8 +338,8 @@
 				var elemHeight = $('.myProgress').height();
 				var windowHeight = $(window).height();
 				var offset = elemOffset - ((windowHeight / 2)-(elemHeight / 2));
-				
-				if($(window).scrollTop() > offset && triggered == 0 ) 
+				console.log("hello");
+				if($(window).scrollTop() > offset && triggered === 0 ) 
 				{
 				console.log("made it");
 					$('#skill-1').animate
