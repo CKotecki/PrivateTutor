@@ -22,6 +22,9 @@
 		<script>
 		var contactObject = {};
 		$(document).ready(function(){
+			//get cookie for name
+			checkCookie();
+			
 			//Get Values stored in contact us and store them in an object to be sent to the server
             $("#Csubmit").click(function()
             {
@@ -48,6 +51,42 @@
 				//console.log("Submitted");
             });
 		});
+		
+
+			//get Cookie
+			function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) === 0) {
+					return c.substring(name.length, c.length);
+				}
+			}
+			return "";
+			}
+			
+			//Check for user name
+			function checkCookie() {
+			console.log("Checking Cookie");
+			var user = getCookie("username");
+			if (user !== "") {
+				//alert("Welcome again " + user);
+				//Set test to Sign in
+				$('#UserName').text(user);
+				console.log(user);
+			} else {
+				$('#UserName').text("Sign In");
+			//   user = prompt("Please enter your name:","");
+			//   if (user !== "" && user !== null) {
+			//	   setCookie("username", "Sign In", 30);
+					
+				}
+			}
+			
 		
 			// Function that validates email address through a regular expression.
 			function validateEmail(sEmail) {
@@ -76,7 +115,8 @@
                 </div>
                 
                  <div class="chip">
-                    <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">John Doe
+                    <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">
+					<a id="UserName"></a>
                 </div>
             </div>
             
@@ -142,6 +182,5 @@
     </body>
     
     <!--SCRIPT REFERENCES-->
-    <script src="StudentDash.js"></script>
     <script src="Menu.js"></script>
 </html>
