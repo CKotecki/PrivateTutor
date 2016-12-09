@@ -20,11 +20,9 @@
         <link rel="stylesheet" type="text/css" href="SiteStyle.css">
         <script src="./js/jquery-1.11.3.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script type="text/javascript">
 		
     $(function () {
@@ -86,26 +84,22 @@
     });
 	
 		   // Save user datat in local storage. 
-    $(function() {
-        $("#AccountSubmit").click(function(){
+    function nextPage(num) {
+        
         
             saveAccount();
             clearBoxes();
+			if (num == 1){
+				window.location = 'StudentDash.html';
+			}else{
+				window.location = 'TutorPage.html';
+			}
+           
+        }
+        
+        
 
-           
-        })
-        
-        $("#btnViewAccount").click(function(){
-           
-            viewAccountInfo();
-        })
-        
-         $("#btnClearAccount").click(function(){
-           
-            clearAccountInfo();
-        })
-		
-    });
+	
       
       function clearBoxes() {
           $('#tblContainer').find('input:text').each(
@@ -128,7 +122,7 @@
                     var address = $("#Address").val();
                     var city = $("#City").val();
 					var state = $("#State").val();
-                    <!--var StudentTutor = $("#choice").val();
+                    //var StudentTutor = $("#choice").val();
 					
 					localStorage.setItem("UserName", username);
 					localStorage.setItem("FirstName", firstName);
@@ -140,10 +134,9 @@
 					localStorage.setItem("Address", address);
 					localStorage.setItem("City", city);
 					localStorage.setItem("State", state);
-					<!--localStorage.setItem("choice", StudentTutor);
+					//localStorage.setItem("choice", StudentTutor);
 					
-
-					$("#accountInfo").html("Account Saved!");
+					//$("#accountInfo").html("Account Saved!");
 			   
                
             } else {
@@ -257,7 +250,7 @@
                   <ul id = "menu_items">
                     <li><a href="Index.html" id="menu_nav_links">Home</a></li>
                     <li><hr id = "menu_divider"></li>
-                    <li><a href="StudentDashboard.html" id="menu_nav_links">My Dashboard</a></li>
+                    <li><a href="StudentDash.html" id="menu_nav_links">My Dashboard</a></li>
                     <li><hr id = "menu_divider"></li>
                     <li><a href="Settings.html" id="menu_nav_links">Settings</a></li>
                     <li><hr id = "menu_divider"></li>
@@ -311,24 +304,10 @@
     </tr>
 
 	<tr>
-     <td>Please check the if you want to be a tutor or student.</td>
-     <td> 
-	<select name="customers" onchange="">
-		<option value="tutor" id="choice">Tutor</option>
-		<option value="student" id="choice">Student</option>
-	</td>
-    </tr>
-	<tr>
-	  <td></td>
-      <td><button id="AccountSubmit" >Submit</button></td>
-    </tr>
-    <tr>
-	  <td></td>
-      <td><button id="btnViewAccount" >View Account</button></td>
-    </tr>
-    <tr>
-		<td></td>
-		<td><button id="btnClearAccount">Clear Account</button></td>
+     <td>To save select tutor or student.</td>
+     <td><button id="AccountSubmit" onclick="window.location='StudentDash.html';">Student</button></td>
+	<td><button id="AccountSubmit"  onclick="window.location='TutorPage.html';" >Tutor</button></td>
+
     </tr>
   </tbody>
 </table>
