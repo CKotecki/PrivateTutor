@@ -25,11 +25,47 @@
 		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 		<script type="text/javascript">
+
+			$(document).ready(function(){
+				//Check for cookie to populate name
+				checkCookie();
+			});
+			//get Cookie
+			function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) === 0) {
+					return c.substring(name.length, c.length);
+				}
+			}
+			return "";
+		}
+			
+			//Check for user name
+			function checkCookie() {
+			console.log("Checking Cookie");
+			var user = getCookie("username");
+			if (user !== "") {
+				//set text for username
+				$('#UserName').text(user);
+				console.log(user);
+			} else {
+				$('#UserName').text("Sign In");
+					
+				}
+			}
+			
+
 		
     $(function () {
         $("#newPassword").bind("keyup", function () {
             //TextBox left blank.
-            if ($(this).val().length == 0) {
+            if ($(this).val().length === 0) {
                 $("#password_mystrength").html("");
                 return;
             }
@@ -92,17 +128,17 @@
             clearBoxes();
 
            
-        })
+        });
         
         $("#btnViewAccount").click(function(){
            
             viewAccountInfo();
-        })
+        });
         
          $("#btnClearAccount").click(function(){
            
             clearAccountInfo();
-        })
+        });
 		
     });
       
@@ -164,7 +200,7 @@
                     var address;
                     var city;
 					var state;
-                    <!--var StudentTutor;
+                    var StudentTutor;
                
 			   if (localStorage.username !== "undefined") {                  
                    username = localStorage.getItem("UserName");       
@@ -195,8 +231,8 @@
                if (localStorage.state !== "undefined") {
                      state = localStorage.getItem("State");
                }
-               <!--if (localStorage.StudentTutor !== "undefined") {
-                   <!--  StudentTutor = localStorage.getItem("choice");
+               if (localStorage.StudentTutor !== "undefined") {
+                    StudentTutor = localStorage.getItem("choice");
 			   
 			  // this allows us to iterate through all the local storage items
               for (var i = 0; i < localStorage.length; i++){
@@ -208,7 +244,7 @@
                 $("#accountInfo").html("Sorry, your browser does not support web storage...");
             }
         }
-        
+		}
         function clearAccountInfo() {
           
             if(typeof(Storage) !== "undefined") {
@@ -248,7 +284,8 @@
                 </div>
                 
                  <div class="chip">
-                    <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">John Doe
+                    <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">
+					<a id="UserName"></a>
                 </div>
             </div>
             
