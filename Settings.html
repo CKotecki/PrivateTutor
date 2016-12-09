@@ -19,6 +19,7 @@
 
         <link rel="stylesheet" type="text/css" href="SiteStyle.css">
         <script src="./js/jquery-1.11.3.js"></script>
+		<link rel="stylesheet" type="text/css" href="modal.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -89,7 +90,7 @@
         
             saveAccount();
             clearBoxes();
-			getExtra();
+			//getExtra();
            
         })
         
@@ -144,7 +145,7 @@
 
 					
 
-					$("#extraInfo").html("Hobbies and Background Saved!");
+					$("#extraInfo").html("Saved!");
 
         
             } else {
@@ -245,14 +246,32 @@
             }
         }
 
-
+        function clearAccountInfo() {
+          
+            if(typeof(Storage) !== "undefined") {
+           
+              
+               
+               // this allows us to iterate through all the local storage items
+              for (var i = 0; i < localStorage.length; i++){
+                    var key = localStorage.key(i);
+                    localStorage.removeItem(key);
+               }
+                   
+               $("#accountInfo").html("Local Storage Cleared");
+               
+                
+            } else {
+                $("#accountInfo").html("Sorry, your browser does not support web storage...");
+            }
+        }
 </script>
     </head>     
     
 	
 	
     <body onload="getContent()">
-        <div class="title">
+        	<div class="title">
             <img id="title" src="logo.png" alt="Lesson Logistics">
             
             <div class="header">			
@@ -268,19 +287,21 @@
                     <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">John Doe
                 </div>
             </div>
-            
+ 
             <div class="menu">
-                  <ul id = "menu_items">
+                <ul id = "menu_items">
                     <li><a href="Index.html" id="menu_nav_links">Home</a></li>
                     <li><hr id = "menu_divider"></li>
-                    <li><a href="StudentDash.html" id="menu_nav_links">My Dashboard</a></li>
+                    <li><a href="StudentDash.html" id="menu_nav_links">Student Dashboard</a></li>
                     <li><hr id = "menu_divider"></li>
+					<li><a href="TutorPage.html" id="menu_nav_links">Tutor Dashboard</a></li>
+					<li><hr id = "menu_divider"></li>
                     <li><a href="Settings.html" id="menu_nav_links">Settings</a></li>
                     <li><hr id = "menu_divider"></li>
                     <li><a href="ContactUs.html" id="menu_nav_links">Contact</a></li>
                 </ul>
             </div>
-        </div>
+	</div>	
         <div class="Main" align="center" width="50%">
 
 		<div>Your Information.</div> 
@@ -372,7 +393,8 @@
     </tr>
 	<tr>
 	  <td></td>
-      <td><button id="AccountSubmit" >Submit</button></td>
+      <td><button id="AccountSubmit" >Submit</button>
+	  <button id="btnClearAccount" >Clear</button></td>
     </tr>
 
 
@@ -387,7 +409,7 @@
         <div class="Footer"><p></p></div>
     </body>
     
-    <!--SCRIPT REFERENCES-->
+      <!--SCRIPT REFERENCES-->
     <script src="StudentDash.js"></script>
     <script src="Menu.js"></script>
 </html>
