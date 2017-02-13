@@ -7,7 +7,7 @@
 
 <html>
     <head>
-        <title>Lesson Logistics - Account Creation</title>
+        <title>Lesson Logistics - Settings</title>
         
         <!--META DATA-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,59 +15,63 @@
         
         <!--EXTERNAL SCRIPT IMPORTS-->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="font-awesome-4.6.3/font-awesome-4.6.3/css/font-awesome.css">
-
-        <link rel="stylesheet" type="text/css" href="SiteStyle.css">
-        <script src="./js/jquery-1.11.3.js"></script>
-		<link rel="stylesheet" type="text/css" href="modal.css">
+        <link rel="stylesheet" type="text/css" href="font-awesome-4.6.3/css/font-awesome.css">
+        
+        <link rel="stylesheet" type="text/css" href="Styles/SiteStyle.css">
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="./js/jquery-1.11.3.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-		<script type="text/javascript">
-		
-	$(document).ready(function(){
-			//Check for cookie to populate name
-			checkCookie();
-		});
-		//get Cookie
-		function getCookie(cname) {
-		var name = cname + "=";
-		var ca = document.cookie.split(';');
-		for(var i = 0; i < ca.length; i++) {
-			var c = ca[i];
-			while (c.charAt(0) == ' ') {
-				c = c.substring(1);
+	 
+		 
+<script>
+	
+			$(document).ready(function(){
+				//Check for cookie to populate name
+				checkCookie();
+			});
+			//get Cookie
+			function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) === 0) {
+					return c.substring(name.length, c.length);
+				}
 			}
-			if (c.indexOf(name) === 0) {
-				return c.substring(name.length, c.length);
-			}
+			return "";
 		}
-		return "";
-	}
-		
-		//Check for user name
-		function checkCookie() {
-		console.log("Checking Cookie");
-		var user = getCookie("username");
-		if (user !== "") {
-			//alert("Welcome again " + user);
-			//Set test to Sign in
-			$('#UserName').text(user);
-			console.log(user);
-		} else {
-			$('#UserName').text("Sign In");
-		//   user = prompt("Please enter your name:","");
-		//   if (user !== "" && user !== null) {
-		//	   setCookie("username", "Sign In", 30);
-				
+			
+			//Check for user name
+			function checkCookie() {
+			console.log("Checking Cookie");
+			var user = getCookie("username");
+			if (user !== "") {
+				//alert("Welcome again " + user);
+				//Set test to Sign in
+				$('#UserName').text(user);
+				console.log(user);
+			} else {
+				$('#UserName').text("Sign In");
+			//   user = prompt("Please enter your name:","");
+			//   if (user !== "" && user !== null) {
+			//	   setCookie("username", "Sign In", 30);
+					
+				}
 			}
-		}	
-		
+			
+
+        
+	
     $(function () {
         $("#txtmyPassword").bind("keyup", function () {
             //TextBox left blank.
-            if ($(this).val().length == 0) {
+            if ($(this).val().length === 0) {
                 $("#password_mystrength").html("");
                 return;
             }
@@ -128,20 +132,21 @@
         $("#AccountSubmit").click(function(){
         
             saveAccount();
+			getExtra();
             clearBoxes();
-			//getExtra();
+
            
-        })
+        });
         
         $("#btnViewAccount").click(function(){
            
             viewAccountInfo();
-        })
+        });
         
          $("#btnClearAccount").click(function(){
            
             clearAccountInfo();
-        })
+        });
 		
     });
       
@@ -157,8 +162,9 @@
             if(typeof(Storage) !== "undefined") {
           
 					var background = $("#Background").val();
-					var hobbies = $("#Hobbies").val();	
-					var username = $("#UserName").val();
+					var hobbies = $("#Hobbies").val();
+					
+					/*var username = $("#UserName").val();
                     var firstName = $("#FirstName").val();
                     var lastName = $("#LastName").val();
 					var email = $("#NewEmail").val();
@@ -166,12 +172,13 @@
 					var telephone = $("#TelephoneNumber").val();
                     var address = $("#Address").val();
                     var city = $("#City").val();
-					var state = $("#State").val();
-
-
-					localStorage.setItem("UserName", username);
+					var state = $("#State").val();*/
+                    //var StudentTutor = $("#choice").val();
+	
 					localStorage.setItem("Background", background);
-					localStorage.setItem("Hobbies", hobbies);					
+					localStorage.setItem("Hobbies", hobbies);
+					/*
+					localStorage.setItem("UserName", username);
 					localStorage.setItem("FirstName", firstName);
 					localStorage.setItem("LastName", lastName);
 					localStorage.setItem("NewEmail", email);
@@ -180,13 +187,13 @@
 					localStorage.setItem("lastname", lastName);
 					localStorage.setItem("Address", address);
 					localStorage.setItem("City", city);
-					localStorage.setItem("State", state);
-
+					localStorage.setItem("State", state);*/
+					//localStorage.setItem("choice", StudentTutor);
 					
 
-					$("#extraInfo").html("Saved!");
-
-        
+					$("#extraInfo").html("Hobbies and Background Saved!");
+			   
+               
             } else {
                 $("#extraInfo").html("Sorry, your browser does not support web storage...");
             }
@@ -219,8 +226,7 @@
         function getContent() {
           
             if(typeof(Storage) !== "undefined") {
-			
-					document.getElementById('UserName').value = localStorage.getItem("username");
+					
             		var username;
                     var firstName;
                     var lastName;
@@ -232,7 +238,7 @@
 					var state;
 			
                     <!--var StudentTutor;
-
+               
 
 			   if (localStorage.username !== "undefined") {                  
                    username = localStorage.getItem("UserName");       
@@ -265,53 +271,38 @@
                    <!--  StudentTutor = localStorage.getItem("choice");
 			   
 			  // this allows us to iterate through all the local storage items
-				$('#getUserName').text(username);
-				$('#getFirstNama').text(firstName);
-				$('#getLastName').text(lastName);
-				$('#getEmail').text(email);
-				$('#getPassword').text(password);
-				$('#getPhoneNumber').text(telephone);
-				$('#getAddress').text(address);
-				$('#getCity').text(city);
-				$('#getState').text(state);
-				$('#getBackground').text(background);
-				$('#getHobbies').text(hobbies);
-				$('#FirstName').val(localStorage.getItem(firstName));
-				
-				 
-				
+              for (var i = 0; i < localStorage.length; i++){
+                    var key = localStorage.key(i);
+                    $('#accountInfo').append("</br>" + key + "   :        " + localStorage.getItem(key) );
+               }
+			   
+            } else {
+                $("#accountInfo").html("Sorry, your browser does not support web storage...");
+            }
+        }
+        
+        function clearAccountInfo() {
+          
+            if(typeof(Storage) !== "undefined") {                   
+               // this allows us to iterate through all the local storage items
+              for (var i = 0; i < localStorage.length; i++){
+                    var key = localStorage.key(i);
+                    localStorage.removeItem(key);
+               }                  
+               $("#accountInfo").html("Local Storage Cleared");                           
             } else {
                 $("#accountInfo").html("Sorry, your browser does not support web storage...");
             }
         }
 
-        function clearAccountInfo() {
-          
-            if(typeof(Storage) !== "undefined") {
-           
-              
-               
-               // this allows us to iterate through all the local storage items
-              for (var i = 0; i < localStorage.length; i++){
-                    var key = localStorage.key(i);
-                    localStorage.removeItem(key);
-               }
-                   
-               $("#accountInfo").html("Local Storage Cleared");
-               
-                
-            } else {
-                $("#accountInfo").html("Sorry, your browser does not support web storage...");
-            }
-        }
 </script>
     </head>     
     
 	
 	
     <body onload="getContent()">
-        	<div class="title">
-            <img id="title" src="logo.png" alt="Lesson Logistics">
+        <div class="title">
+            <img id="title" src="Images/logo.png" alt="Lesson Logistics">
             
             <div class="header">			
                 <div class = "icon_menu_open">
@@ -323,13 +314,14 @@
                 </div>
                 
                  <div class="chip">
-                    <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">John Doe
+                    <img src="Images/male_profile_placeholder.png" alt="Person" width="96" height="96">
+					<a id="UserName"></a>
                 </div>
             </div>
- 
+            
             <div class="menu">
                 <ul id = "menu_items">
-                    <li><a href="Index.html" id="menu_nav_links">Home</a></li>
+                    <li><a href="index.html" id="menu_nav_links">Home</a></li>
                     <li><hr id = "menu_divider"></li>
                     <li><a href="StudentDash.html" id="menu_nav_links">Student Dashboard</a></li>
                     <li><hr id = "menu_divider"></li>
@@ -340,7 +332,7 @@
                     <li><a href="ContactUs.html" id="menu_nav_links">Contact</a></li>
                 </ul>
             </div>
-	</div>	
+        </div>
         <div class="Main" align="center" width="50%">
 
 		<div>Your Information.</div> 
@@ -349,66 +341,16 @@
 		 
             <table width="70%" >
   <tbody width="60">
-  <tr>
-      <td>User Name</td>
-	  <td><div id="getUserName"></div></td>
-	  <td><input type="text" id="UserName" ></td>
-    </tr>
-    <tr>
-      <td>First Name</td>
-		<td><div id="getFirstNama"></div></td>
-    <td><input type="text" id="FirstName"></td>
-    </tr>
-    <tr>
-      <td>Last Name</td>
-<td><div id="getLastName"></div></td>
-     <td><input type="text" id="LastName"></td>
-    </tr>
-    <tr>
-      <td>Email Address</td>
-      <td><div id="getEmail"></div></td>
-    <td><input type="email" id="NewEmail"></td>
-
-    </tr>
-    <tr>
-      <td>password</td>
-	  <td><div id="getPassword"></div></td>
-      <td><input type="password" id="newPassword" name="passwd" > 
-      <span id="password_mystrength"></span></td>
-    </tr>
-    <tr>
-      <td>Phone Number</td>
-	  <td><div id="getPhoneNumber"></div></td>
-      <td><input type="tel" id="TelephoneNumber"></td>
-    </tr>
-    <tr>
-      <td>Address</td>
-	  <td><div id="getAddress"></div></td>
-      <td><input type="text" id="Address"></td>
-    </tr>
-    <tr>
-      <td>City</td>
-	  <td><div id="getCity"></div></td>
-      <td><input type="text" id="City"></td>
-    </tr>
-    <tr>
-      <td>State</td>
-	  <td><div id="getState"></div></td>
-      <td><input type="text" id="State"></td>
-    </tr>
     <tr>
       <td>Background</td>
-	  <td><div id="getBackground"></div></td>
-      <td><input type="text" id="Background"></td>
+      <td><textarea type="text" id="Background"></textarea></td>
     </tr>
     <tr>
       <td>Hobbies</td>
-	  <td><div id="getHobbies"></div></td>
-      <td><input type="text" id="Hobbies"></td>
+      <td><textarea type="text" id="Hobbies"></textarea></td>
     </tr>
     <tr>
       <td>Resume</td>
-	  <td><div id="getUserName"></div></td>
       <td><input type="file" id="Resume"></td>
     </tr>
     <tr>
@@ -432,11 +374,18 @@
     </tr>
 	<tr>
 	  <td></td>
-      <td><button id="AccountSubmit" >Submit</button>
-	  <button id="btnClearAccount" >Clear</button></td>
+      <td><button id="AccountSubmit" >Submit</button></td>
     </tr>
-
-
+    <tr>
+      <td>Test button</td>
+	  
+      <td><button id="btnViewAccount" >View Account</button></td>
+    </tr>
+	    <tr>
+      <td>test button </td>
+	   
+      <td><button id="btnClearAccount">Clear Account</button></td>
+    </tr>
   </tbody>
 </table>
 	
@@ -448,7 +397,7 @@
         <div class="Footer"><p></p></div>
     </body>
     
-      <!--SCRIPT REFERENCES-->
-    <script src="StudentDash.js"></script>
-    <script src="Menu.js"></script>
+    <!--SCRIPT REFERENCES-->
+    <script src="JavaScript/StudentDash.js"></script>
+    <script src="JavaScript/Menu.js"></script>
 </html>

@@ -19,12 +19,12 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="font-awesome-4.6.3/css/font-awesome.css">
         
-        <link rel="stylesheet" type="text/css" href="SiteStyle.css">
+        <link rel="stylesheet" type="text/css" href="Styles/SiteStyle.css">
 
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-		<link rel="stylesheet" type="text/css" href="modal.css">
+		<link rel="stylesheet" type="text/css" href="Styles/modal.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		
 		<script>
@@ -32,6 +32,7 @@
 			//Check for cookie to populate name
 			checkCookie();
 		});
+		
 		//get Cookie
 		function getCookie(cname) {
 		var name = cname + "=";
@@ -72,7 +73,7 @@
     
   <body>
 <div class="title">
-            <img id="title" src="logo.png" alt="Lesson Logistics">
+            <img id="title" src="Images/logo.png" alt="Lesson Logistics">
             
             <div class="header">			
                 <div class = "icon_menu_open">
@@ -84,13 +85,13 @@
                 </div>
                 
                  <div class="chip">
-                    <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">John Doe
+                    <img src="Images/male_profile_placeholder.png" alt="Person" width="96" height="96">John Doe
                 </div>
             </div>
  
             <div class="menu">
                 <ul id = "menu_items">
-                    <li><a href="Index.html" id="menu_nav_links">Home</a></li>
+                    <li><a href="index.html" id="menu_nav_links">Home</a></li>
                     <li><hr id = "menu_divider"></li>
                     <li><a href="StudentDash.html" id="menu_nav_links">Student Dashboard</a></li>
                     <li><hr id = "menu_divider"></li>
@@ -130,7 +131,7 @@
 			
 		<div style="margin: 25px;">
 			<div id="student-info-section">
-				<img src="male_profile_placeholder.png" alt="Person" width="96" height="96" id="student-profilepic-dash">
+				<img src="Images/male_profile_placeholder.png" alt="Person" width="96" height="96" id="student-profilepic-dash">
 				
 				<h2 id="student-name">John Doe</h2>
 				
@@ -146,8 +147,8 @@
 					Positive Reviews: 45 </br> 
 					Total Reviews: 49
 				</p>	
-				<h2 style="text-align: left;" >About Me</h2></br>			
-				<h2 id="student-about-me"></h2>
+								
+				<h3 id="student-about-me">About Me</h2>
 								
 				<div class="skill_bars">
 						<table>
@@ -230,9 +231,9 @@
 				</form>
 
 
-			<p style="margin: 0px; margin-top: 45px;">Communicate with student</p>
-			<textarea cols="15"></textarea>
-			<input type="button" value="Send" id="send">
+			<p style="margin: 0px; margin-top: 45px;">Student Communication</p>
+			<textarea cols="15" id="comment-to-student"></textarea>
+			<input type="button" value="Send" id="send-comment-student">
 			 
 			</div>
 		</div>
@@ -274,9 +275,9 @@
   </body>
   
       <!--SCRIPT REFERENCES-->
-    <script src="StudentDash.js"></script>
-    <script src="Menu.js"></script>
-	<script src="TutorRating.js"></script>
+    <script src="JavaScript/StudentDash.js"></script>
+    <script src="JavaScript/Menu.js"></script>
+	<script src="JavaScript/TutorRating.js"></script>
 	
 	<script>
 		function viewAccountInfo() {
@@ -292,8 +293,6 @@
                     var address;
                     var city;
 					var state;
-				    var hobbies;
-				    var background;
                     //var StudentTutor;
                
 			   if (localStorage.username !== "undefined") {                  
@@ -325,15 +324,8 @@
                if (localStorage.state !== "undefined") {
                      state = localStorage.getItem("State");
                }
-		
-			   if (localStorage.background !== "undefined") {                  
-                   background = localStorage.getItem("Background");       
-               }
-			   if (localStorage.hobbies !== "undefined") {                  
-                   hobbies = localStorage.getItem("Hobbies");       
-               }	   
+               			   
 			  $('#student-name').text(firstName + " " + lastName);
-			  $('#student-about-me').text(background + ' ' + hobbies);
 			   
             } else {
                 $("#accountInfo").html("Sorry, your browser does not support web storage...");

@@ -10,6 +10,7 @@
 <html>
     <head>
         <title>Lesson Logistics - Student Dashboard</title>
+
         
         <!--META DATA-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,16 +20,56 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="font-awesome-4.6.3/css/font-awesome.css">
         
-        <link rel="stylesheet" type="text/css" href="SiteStyle.css">
+        <link rel="stylesheet" type="text/css" href="Styles/SiteStyle.css">
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+		
+		<script>
+			$(document).ready(function(){
+				//Check for cookie to populate name
+				checkCookie();
+			});
+			//get Cookie
+			function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) === 0) {
+					return c.substring(name.length, c.length);
+				}
+			}
+			return "";
+		}
+			
+			//Check for user name
+			function checkCookie() {
+			console.log("Checking Cookie");
+			var user = getCookie("username");
+			if (user !== "") {
+				//alert("Welcome again " + user);
+				//Set test to Sign in
+				$('#UserName').text(user);
+				console.log(user);
+			} else {
+				$('#UserName').text("Sign In");
+			//   user = prompt("Please enter your name:","");
+			//   if (user !== "" && user !== null) {
+			//	   setCookie("username", "Sign In", 30);
+					
+				}
+			}
+			
+
+        </script>
     </head>     
     
     <body>
         <div class="title">
-            <img id="title" src="logo.png" alt="Lesson Logistics">
+            <img id="title" src="Images/logo.png" alt="Lesson Logistics">
             
             <div class="header">			
                 <div class = "icon_menu_open">
@@ -40,22 +81,26 @@
                 </div>
                 
                  <div class="chip">
-                    <img src="male_profile_placeholder.png" alt="Person" width="96" height="96">John Doe
+                    <img src="Images/male_profile_placeholder.png" alt="Person" width="96" height="96">
+					<a id="UserName"></a>
                 </div>
             </div>
             
             <div class="menu">
-                 <ul id = "menu_items">
-                    <li><a href="Index.html" id="menu_nav_links">Home</a></li>
+                <ul id = "menu_items">
+                    <li><a href="index.html" id="menu_nav_links">Home</a></li>
                     <li><hr id = "menu_divider"></li>
-                    <li><a href="StudentDashboard.html" id="menu_nav_links">My Dashboard</a></li>
+                    <li><a href="StudentDash.html" id="menu_nav_links">Student Dashboard</a></li>
                     <li><hr id = "menu_divider"></li>
+					<li><a href="TutorPage.html" id="menu_nav_links">Tutor Dashboard</a></li>
+					<li><hr id = "menu_divider"></li>
                     <li><a href="Settings.html" id="menu_nav_links">Settings</a></li>
                     <li><hr id = "menu_divider"></li>
                     <li><a href="ContactUs.html" id="menu_nav_links">Contact</a></li>
                 </ul>
-            </div>
+            </div>  
         </div>
+		
         <div class="Main">
             <div class="calendar">
                 <div class="month">
@@ -80,11 +125,55 @@
                 <ul class="days" id="days">
                 </ul>
             </div>
+			
+					<div style="margin: 25px;">
+			<div id="student-info-section">
+				<img src="Images/male_profile_placeholder.png" alt="Person" width="96" height="96" id="student-profilepic-dash">
+				
+				<h2 id="student-name">John Doe</h2>
+				
+				</br>
+				</br>
+				</br>
+				</br>
+				</br>
+								
+				<h3 id="student-about-me">About Me</h2>										
+				
+				<p>
+					I'm a two-dimensional vector graphic instead of a real human being. I enjoy existing in a dimension that really doesn't make sense
+					other than being the surface of the three-dimensional objects of your universe. Also I have no face.
+				</p>
+				
+				<select name="Your Students" title="Your Students" class="studentSelect">
+						<option value="Clayton">Johnny Instruction</option>
+						<option value="Luke">Leslie Learner</option>
+						<option value="Curtis" selected>Tommy Tutor</option>
+					</select>
+				</form>
+
+
+			<p style="margin: 0px; margin-top: 45px;">Tutor Communication</p>
+			<textarea cols="15" id="comment-to-student"></textarea>
+			
+			</br>
+			<input type="button" value="Send" id="send-comment-student">
+			 
+			</div>
+		</div>
         </div>
-        <div class="Footer"></div>
+        
+		<div class="Footer">
+			<p style="margin: 0px;">
+				Lesson Logistics</br>
+				123 Living The Dream Drive</br>
+				lessonlog@pleaseworkatleastforthepresentation.com</br>
+				1-800-TUTOR
+			</p>
+		</div>
     </body>
     
     <!--SCRIPT REFERENCES-->
-    <script src="StudentDash.js"></script>
-    <script src="Menu.js"></script>
+    <script src="JavaScript/StudentDash.js"></script>
+    <script src="JavaScript/Menu.js"></script>
 </html>
