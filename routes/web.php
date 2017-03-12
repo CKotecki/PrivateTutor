@@ -24,3 +24,7 @@ Route::get('/tutor', 'TutorController@getTutor');
 Route::get('/welcome', 'WelcomeController@getWelcome');
 
 Route::get('/student', 'StudentController@getStudent');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

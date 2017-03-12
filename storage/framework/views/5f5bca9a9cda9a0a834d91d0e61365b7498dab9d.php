@@ -42,22 +42,22 @@
         <script>
             $(document).ready(function(){
 
-                $('#signIn').click(function(){
-                     console.log("open");
-                    $('#overlay').fadeIn(200,function(){
-                        $('#logPop').animate({'top':'400px'},200);
-                    });
-                     return false;
-                });
-
-                //Close log in box
-                $('#boxclose').click(function(){
-                    console.log("close");
-                    $('#logPop').animate({'top':'-400px'},500,function(){
-                        $('#overlay').fadeOut('fast');
-                    });
-
-                });
+                // $('#signIn').click(function(){
+                //      console.log("open");
+                //     $('#overlay').fadeIn(200,function(){
+                //         $('#logPop').animate({'top':'400px'},200);
+                //     });
+                //      return false;
+                // });
+                //
+                // //Close log in box
+                // $('#boxclose').click(function(){
+                //     console.log("close");
+                //     $('#logPop').animate({'top':'-400px'},500,function(){
+                //         $('#overlay').fadeOut('fast');
+                //     });
+                //
+                // });
 
 				//sign in functions
             $('#submit').click(function(){
@@ -139,7 +139,8 @@
          <div class="chip" id="signIn">
             <img src="img/male_profile_placeholder.png" alt="Person" width="96" height="96">
 
-            <a id="UserName">Sign In</a>
+            <!-- <a id="UserName">Sign In</a> -->
+            <a href="<?php echo e(route('login')); ?>">Sign In</a>
         </div>
     </div>
 
