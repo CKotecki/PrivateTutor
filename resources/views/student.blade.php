@@ -5,39 +5,7 @@
     //Check for cookie to populate name
     checkCookie();
   });
-  //get Cookie
-  function getCookie(cname) {
-  var name = cname + "=";
-  var ca = document.cookie.split(';');
-  for(var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) === 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
 
-  //Check for user name
-  function checkCookie() {
-  console.log("Checking Cookie");
-  var user = getCookie("username");
-  if (user !== "") {
-    //alert("Welcome again " + user);
-    //Set test to Sign in
-    $('#UserName').text(user);
-    console.log(user);
-  } else {
-    $('#UserName').text("Sign In");
-  //   user = prompt("Please enter your name:","");
-  //   if (user !== "" && user !== null) {
-  //	   setCookie("username", "Sign In", 30);
-
-    }
-  }
 
 
     </script>
@@ -71,7 +39,8 @@
 <div id="student-info-section">
 <img src="img/male_profile_placeholder.png" alt="Person" width="96" height="96" id="student-profilepic-dash">
 
-<h2 id="student-name">John Doe</h2>
+<!-- Set Name -->
+<h2 id="student-name">{{ Auth::user()->name }} </h2>
 
 </br>
 </br>

@@ -30,7 +30,7 @@
 			<div id="student-info-section">
 				<img src="img/male_profile_placeholder.png" alt="Person" width="96" height="96" id="student-profilepic-dash">
 
-				<h2 id="student-name">John Doe</h2>
+				<h2 id="student-name"><?php echo e(Auth::user()->name); ?> </h2>
 
 				<div id="ratings">
 					<i id="s1" class="fa fa-star" aria-hidden="true" onClick="starColor(0,this.id);"></i>
@@ -169,59 +169,59 @@
 	<script src="js/TutorRating.js"></script>
 
 	<script>
-		function viewAccountInfo() {
-
-            if(typeof(Storage) !== "undefined") {
-
-            		var username;
-                    var firstName;
-                    var lastName;
-					var email;
-					var password;
-					var telephone;
-                    var address;
-                    var city;
-					var state;
-                    //var StudentTutor;
-
-			   if (localStorage.username !== "undefined") {
-                   username = localStorage.getItem("UserName");
-               }
-               if (localStorage.firstName !== "undefined") {
-                    firstName = localStorage.getItem("FirstName");
-               }
-               if (localStorage.lastName !== "undefined") {
-                   lastName = localStorage.getItem("LastName");
-               }
-               if (localStorage.email !== "undefined") {
-                     email = localStorage.getItem("NewEmail");
-               }
-               if (localStorage.password !== "undefined") {
-                     password = localStorage.getItem("newPassword");
-			   }
-			   if (localStorage.telephone !== "undefined") {
-
-					telephone = localStorage.getItem("TelephoneNumber");
-
-               }
-               if (localStorage.address !== "undefined") {
-                    address = localStorage.getItem("Address");
-               }
-               if (localStorage.city !== "undefined") {
-                   city = localStorage.getItem("City");
-               }
-               if (localStorage.state !== "undefined") {
-                     state = localStorage.getItem("State");
-               }
-
-			  $('#student-name').text(firstName + " " + lastName);
-
-            } else {
-                $("#accountInfo").html("Sorry, your browser does not support web storage...");
-            }
-        }
-
-		viewAccountInfo();
+		// function viewAccountInfo() {
+		//
+    //         if(typeof(Storage) !== "undefined") {
+		//
+    //         		var username;
+    //                 var firstName;
+    //                 var lastName;
+		// 			var email;
+		// 			var password;
+		// 			var telephone;
+    //                 var address;
+    //                 var city;
+		// 			var state;
+    //                 //var StudentTutor;
+		//
+		// 	   if (localStorage.username !== "undefined") {
+    //                username = localStorage.getItem("UserName");
+    //            }
+    //            if (localStorage.firstName !== "undefined") {
+    //                 firstName = localStorage.getItem("FirstName");
+    //            }
+    //            if (localStorage.lastName !== "undefined") {
+    //                lastName = localStorage.getItem("LastName");
+    //            }
+    //            if (localStorage.email !== "undefined") {
+    //                  email = localStorage.getItem("NewEmail");
+    //            }
+    //            if (localStorage.password !== "undefined") {
+    //                  password = localStorage.getItem("newPassword");
+		// 	   }
+		// 	   if (localStorage.telephone !== "undefined") {
+		//
+		// 			telephone = localStorage.getItem("TelephoneNumber");
+		//
+    //            }
+    //            if (localStorage.address !== "undefined") {
+    //                 address = localStorage.getItem("Address");
+    //            }
+    //            if (localStorage.city !== "undefined") {
+    //                city = localStorage.getItem("City");
+    //            }
+    //            if (localStorage.state !== "undefined") {
+    //                  state = localStorage.getItem("State");
+    //            }
+		//
+		// 	  $('#student-name').text(firstName + " " + lastName);
+		//
+    //         } else {
+    //             $("#accountInfo").html("Sorry, your browser does not support web storage...");
+    //         }
+    //     }
+		//
+		// viewAccountInfo();
 	</script>
 
 	<script>
