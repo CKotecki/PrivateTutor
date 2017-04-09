@@ -16,7 +16,7 @@ class Student extends Migration
       Schema::create('students', function (Blueprint $table) {
           $table->increments('studentID');
           $table->integer('userID');
-          $table->foreign('userID')->references('id')->on('users');
+          // $table->foreign('userID')->references('id')->on('users');
       });
     }
 

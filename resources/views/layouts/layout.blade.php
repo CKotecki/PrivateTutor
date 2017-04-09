@@ -22,6 +22,7 @@
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
 
 

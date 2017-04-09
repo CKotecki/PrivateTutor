@@ -1,5 +1,9 @@
 <?php
 
+
+use App\Events\MessagePosted;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +32,25 @@ Route::get('/student', 'StudentController@getStudent');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/student', function (){
+  return view('student');
+})->middleware('auth');
+
+Route::get('/messages', function(){
+  return App\Message::with('user')->get();
+})->middleware('auth');
+
+Route::post('/messages', function(){
+
+  $user = Auth::user();
+  $message = $user-> messages()->create([
+    'message' => request()->get('message')
+  ]);
+
+  //announce the message was posted
+  event(new MessagePosted($message, $user));
+
+  return ['status' => 'OK'];
+
+})->middleware('auth');
