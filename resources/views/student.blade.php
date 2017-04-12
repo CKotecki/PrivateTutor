@@ -30,7 +30,6 @@ $("#addClass").click(function () {
                 </li>
             </ul>
         </div>
-
         <ul class="weekdays">
           <li>Su</li>
           <li>Mo</li>
@@ -40,45 +39,44 @@ $("#addClass").click(function () {
           <li>Fr</li>
           <li>Sa</li>
         </ul>
-
         <ul class="days" id="days">
         </ul>
     </div>
 
   <div style="margin: 25px;">
 <div id="student-info-section">
-<img src="img/male_profile_placeholder.png" alt="Person" width="96" height="96" id="student-profilepic-dash">
+  <img src="img/male_profile_placeholder.png" alt="Person" width="96" height="96" id="student-profilepic-dash">
 
-<!-- Set Name -->
-<h2 id="student-name">{{ Auth::user()->name }} </h2>
+  <!-- Set Name -->
+  <h2 id="student-name">{{ Auth::user()->name }} </h2>
 
-</br>
-</br>
-</br>
-</br>
-</br>
+  </br>
+  </br>
+  </br>
+  </br>
+  </br>
 
-<h3 id="student-about-me">About Me</h2>
+  <h3 id="student-about-me">About Me</h2>
 
-<p>
-  I'm a two-dimensional vector graphic instead of a real human being. I enjoy existing in a dimension that really doesn't make sense
-  other than being the surface of the three-dimensional objects of your universe. Also I have no face.
-</p>
+  <p>
+    I'm a two-dimensional vector graphic instead of a real human being. I enjoy existing in a dimension that really doesn't make sense
+    other than being the surface of the three-dimensional objects of your universe. Also I have no face.
+  </p>
 
-<select name="Your Students" title="Your Students" class="studentSelect">
-    <option value="Clayton">Johnny Instruction</option>
-    <option value="Luke">Leslie Learner</option>
-    <option value="Curtis" selected>Tommy Tutor</option>
-  </select>
-</form>
-
-
+  <select name="Your Students" title="Your Students" class="studentSelect">
+      <option value="Clayton">Johnny Instruction</option>
+      <option value="Luke">Leslie Learner</option>
+      <option value="Curtis" selected>Tommy Tutor</option>
+    </select>
+  </form>
 
 
 
 
-<p style="margin: 0px; margin-top: 45px;">Tutor Communication</p>
-<!-- Chat setup -->
+
+
+  <p style="margin: 0px; margin-top: 45px;">Tutor Communication</p>
+  <!-- Chat setup -->
 <div id="app">
   <chat-log :messages="messages"></chat-log>
   <chat-composer v-on:messagesent="addMessage"></chat-composer>

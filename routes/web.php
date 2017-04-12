@@ -29,6 +29,8 @@ Route::get('/welcome', 'WelcomeController@getWelcome');
 
 Route::get('/student', 'StudentController@getStudent');
 
+//Route::get('/settings', 'SettingController#getSettings');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
