@@ -1,8 +1,6 @@
 <?php
 
-
 use App\Events\MessagePosted;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -19,40 +17,34 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/tutor', function () {
-//     return view('tutor');
-// });
-
 Route::get('/tutor', 'TutorController@getTutor');
 
 Route::get('/welcome', 'WelcomeController@getWelcome');
 
 Route::get('/student', 'StudentController@getStudent');
 
-//Route::get('/settings', 'SettingController#getSettings');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/student', function (){
-  return view('student');
+Route::get('/chat', function () {
+    return view('chat');
 })->middleware('auth');
 
-Route::get('/messages', function(){
-  return App\Message::with('user')->get();
+Route::get('/messages', function () {
+    return App\Message::with('user')->get();
 })->middleware('auth');
 
-Route::post('/messages', function(){
+Route::post('/messages', function () {
+    // Store the new message
+    $user = Auth::user();
 
-  $user = Auth::user();
-  $message = $user-> messages()->create([
-    'message' => request()->get('message')
-  ]);
+    $message = $user->messages()->create([
+        'message' => request()->get('message')
+    ]);
 
-  //announce the message was posted
-  event(new MessagePosted($message, $user));
+    // Announce that a new message has been posted
+    broadcast(new MessagePosted($message, $user))->toOthers();
 
-  return ['status' => 'OK'];
-
+    return ['status' => 'OK'];
 })->middleware('auth');

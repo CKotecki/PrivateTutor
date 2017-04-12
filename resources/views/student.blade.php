@@ -6,17 +6,141 @@
 
 
 <link rel="stylesheet" href="css/app.css">
-<script>
-$(function(){
-$("#addClass").click(function () {
-  $('#sidebar_secondary').addClass('popup-box-on');
-    });
 
-    $("#removeClass").click(function () {
-  $('#sidebar_secondary').removeClass('popup-box-on');
-    });
-})
-</script>
+
+<style type="text/css">
+
+#scroll {
+
+    height: 500px;
+    overflow-y: scroll;
+}
+
+
+.col-md-2, .col-md-10{
+padding:0;
+}
+.panel{
+margin-bottom: 0px;
+width:100%;
+}
+.chat-window{
+bottom:0;
+position:fixed;
+
+margin-left:10px;
+right:0;
+}
+.chat-window > div > .panel{
+border-radius: 5px 5px 0 0;
+}
+.icon_minim{
+/*padding:2px 10px;*/
+}
+.msg_container_base{
+background: #e5e5e5;
+margin: 0;
+padding: 0;
+max-height:500px;
+overflow-y: scroll;
+overflow-x:hidden;
+
+}
+.top-bar {
+background: #666;
+color: white;
+padding: 10px;
+position: relative;
+overflow: hidden;
+}
+
+.bottom-bar{
+  /*background: #666;
+  color: white;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;*/
+}
+.msg_receive{
+padding-left:0;
+margin-left:0;
+}
+.msg_sent{
+padding-bottom:20px !important;
+margin-right:0;
+}
+.messages {
+background: white;
+padding: 10px;
+border-radius: 2px;
+box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+max-width:100%;
+}
+.messages > p {
+font-size: 13px;
+margin: 0 0 0.2rem 0;
+}
+.messages > time {
+font-size: 11px;
+color: #ccc;
+}
+.msg_container {
+padding: 10px;
+overflow: hidden;
+display: flex;
+}
+
+.avatar {
+position: relative;
+}
+.base_receive > .avatar:after {
+content: "";
+position: absolute;
+top: 0;
+right: 0;
+width: 0;
+height: 0;
+border: 5px solid #FFF;
+border-left-color: rgba(0, 0, 0, 0);
+border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.base_sent {
+justify-content: flex-end;
+align-items: flex-end;
+}
+.base_sent > .avatar:after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 0;
+width: 0;
+height: 0;
+border: 5px solid white;
+border-right-color: transparent;
+border-top-color: transparent;
+box-shadow: 1px 1px 2px rgba(black, 0.2);
+
+.msg_sent > time{
+/*float: right;*/
+}
+
+
+
+
+.btn-group.dropup{
+position:fixed;
+left:0px;
+bottom:0;
+}
+
+.panel-footer { padding:0px !important;}
+
+/*.chat_box{float:left !important; width:85% !important; border:none; border-radius:0px;}*/
+
+
+
+</style>
 
 <!-- Styles -->
 <link rel="stylesheet" type="text/css" href="css/chat.css">
@@ -30,6 +154,7 @@ $("#addClass").click(function () {
                 </li>
             </ul>
         </div>
+
         <ul class="weekdays">
           <li>Su</li>
           <li>Mo</li>
@@ -39,63 +164,53 @@ $("#addClass").click(function () {
           <li>Fr</li>
           <li>Sa</li>
         </ul>
+
         <ul class="days" id="days">
         </ul>
     </div>
 
   <div style="margin: 25px;">
 <div id="student-info-section">
-  <img src="img/male_profile_placeholder.png" alt="Person" width="96" height="96" id="student-profilepic-dash">
+<img src="img/male_profile_placeholder.png" alt="Person" width="96" height="96" id="student-profilepic-dash">
 
-  <!-- Set Name -->
-  <h2 id="student-name">{{ Auth::user()->name }} </h2>
+<!-- Set Name -->
+<h2 id="student-name">{{ Auth::user()->name }} </h2>
 
-  </br>
-  </br>
-  </br>
-  </br>
-  </br>
+</br>
+</br>
+</br>
+</br>
+</br>
 
-  <h3 id="student-about-me">About Me</h2>
+<h3 id="student-about-me">About Me</h2>
 
-  <p>
-    I'm a two-dimensional vector graphic instead of a real human being. I enjoy existing in a dimension that really doesn't make sense
-    other than being the surface of the three-dimensional objects of your universe. Also I have no face.
-  </p>
+<p>
+  I'm a two-dimensional vector graphic instead of a real human being. I enjoy existing in a dimension that really doesn't make sense
+  other than being the surface of the three-dimensional objects of your universe. Also I have no face.
+</p>
 
-  <select name="Your Students" title="Your Students" class="studentSelect">
-      <option value="Clayton">Johnny Instruction</option>
-      <option value="Luke">Leslie Learner</option>
-      <option value="Curtis" selected>Tommy Tutor</option>
-    </select>
-  </form>
-
-
+<select name="Your Students" title="Your Students" class="studentSelect">
+    <option value="Clayton">Johnny Instruction</option>
+    <option value="Luke">Leslie Learner</option>
+    <option value="Curtis" selected>Tommy Tutor</option>
+  </select>
+</form>
 
 
 
 
-  <p style="margin: 0px; margin-top: 45px;">Tutor Communication</p>
-  <!-- Chat setup -->
-<div id="app">
+
+
+<p style="margin: 0px; margin-top: 45px;">Tutor Communication</p>
+<!-- Chat setup -->
+{{-- <div id="app">
   <chat-log :messages="messages"></chat-log>
   <chat-composer v-on:messagesent="addMessage"></chat-composer>
-</div>
+</div> --}}
 
 
 
 
-
-
-
-<div>
-    <div class="row">
-		<h2 style="color: rgb(24, 157, 14);"><i aria-hidden="true" class="fa fa-whatsapp"></i> Whatsapp Chat Box POPUP</h2>
-        <div class="round hollow text-center">
-        <a class="open-btn" id="addClass"><i class="fa fa-whatsapp" aria-hidden="true"></i> Click Here</a>
-        </div>
-	</div>
-</div>
 
 
 
@@ -105,120 +220,92 @@ $("#addClass").click(function () {
 
 
 <!-- Chat window -->
-<aside id="sidebar_secondary" class="tabbed_sidebar ng-scope chat_sidebar">
-
-<div class="popup-head">
-    			<div class="popup-head-left pull-left"><a Design and Developmenta title="Gurdeep Osahan (Web Designer)" target="_blank" href="https://web.facebook.com/iamgurdeeposahan">
-<img class="md-user-image" alt="Gurdeep Osahan (Web Designer)" title="Gurdeep Osahan (Web Designer)" src="http://bootsnipp.com/img/avatars/bcf1c0d13e5500875fdd5a7e8ad9752ee16e7462.jpg" title="Gurdeep Osahan (Web Designer)" alt="Gurdeep Osahan (Web Designer)">
-<h1>Person Name</h1><small><br> <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Web Designer</small></a></div>
-					  <div class="popup-head-right pull-right">
-                      <button class="chat-header-button" type="button"><i class="glyphicon glyphicon-facetime-video"></i></button>
-						<button class="chat-header-button" type="button"><i class="glyphicon glyphicon-earphone"></i></button>
-                        <div class="btn-group gurdeepoushan">
-    								  <button class="chat-header-button" data-toggle="dropdown" type="button" aria-expanded="false">
-									   <i class="glyphicon glyphicon-paperclip"></i> </button>
-									  <ul role="menu" class="dropdown-menu pull-right">
-										<li><a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Gallery</a></li>
-										<li><a href="#"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Photo</a></li>
-										<li><a href="#"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Video</a></li>
-										<li><a href="#"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Audio</a></li>
-                                        <li><a href="#"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Location</a></li>
-                                        <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Contact</a></li>
-									  </ul>
-						</div>
-
-						<button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i class="glyphicon glyphicon-remove"></i></button>
-                      </div>
-			  </div>
-
-<div id="chat" class="chat_box_wrapper chat_box_small chat_box_active" style="opacity: 1; display: block; transform: translateX(0px);">
-                        <div class="chat_box touchscroll chat_box_colors_a">
-                            <div class="chat_message_wrapper">
-                                <div class="chat_user_avatar">
-                                    <a href="https://web.facebook.com/iamgurdeeposahan" target="_blank" >
-                                    <img alt="Gurdeep Osahan (Web Designer)" title="Gurdeep Osahan (Web Designer)"  src="http://www.webncc.in/images/gurdeeposahan.jpg" class="md-user-image">
-                                    </a>
-                                </div>
-                                <ul class="chat_message">
-                                    <li>
-                                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, eum? </p>
-                                    </li>
-                                    <li>
-                                        <p> Lorem ipsum dolor sit amet.<span class="chat_message_time">13:38</span> </p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="chat_message_wrapper chat_message_right">
-                                <div class="chat_user_avatar">
-                                <a href="https://web.facebook.com/iamgurdeeposahan" target="_blank" >
-                                    <img alt="Gurdeep Osahan (Web Designer)" title="Gurdeep Osahan (Web Designer)" src="http://bootsnipp.com/img/avatars/bcf1c0d13e5500875fdd5a7e8ad9752ee16e7462.jpg" class="md-user-image">
-                                </a>
-                                </div>
-                                <ul class="chat_message">
-                                    <li>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem delectus distinctio dolor earum est hic id impedit ipsum minima mollitia natus nulla perspiciatis quae quasi, quis recusandae, saepe, sunt totam.
-                                            <span class="chat_message_time">13:34</span>
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="chat_message_wrapper">
-                                <div class="chat_user_avatar">
-                                <a href="https://web.facebook.com/iamgurdeeposahan" target="_blank" >
-                                    <img alt="Gurdeep Osahan (Web Designer)" title="Gurdeep Osahan (Web Designer)" src="http://www.webncc.in/images/gurdeeposahan.jpg" class="md-user-image">
-                                </a>
-                                </div>
-                                <ul class="chat_message">
-                                    <li>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ea mollitia pariatur porro quae sed sequi sint tenetur ut veritatis.https://www.facebook.com/iamgurdeeposahan
-                                            <span class="chat_message_time">23 Jun 1:10am</span>
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="chat_message_wrapper chat_message_right">
-                                <div class="chat_user_avatar">
-                                <a href="https://web.facebook.com/iamgurdeeposahan" target="_blank" >
-                                    <img alt="Gurdeep Osahan (Web Designer)" title="Gurdeep Osahan (Web Designer)" src="http://bootsnipp.com/img/avatars/bcf1c0d13e5500875fdd5a7e8ad9752ee16e7462.jpg" class="md-user-image">
-                                </a>
-                                </div>
-                                <ul class="chat_message">
-                                    <li>
-                                        <p> Lorem ipsum dolor sit amet, consectetur. </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                            <span class="chat_message_time">Friday 13:34</span>
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+<div class="page">
+    <div class="container">
+    <div class="row chat-window col-xs-5 col-md-4" id="chat_window_1" style="margin-left:10px;">
+        <div class="col-xs-12 col-md-12">
+          <div id="app">
+        	<div class="panel panel-default">
+                <div class="panel-heading top-bar">
+                    <div class="col-md-8 col-xs-8">
+                        <h3 class="panel-title">{{ Auth::user()->name }}</h3>
                     </div>
-<div class="chat_submit_box">
-    <div class="uk-input-group">
-        <div class="gurdeep-chat-box">
-        <span style="vertical-align: sub;" class="uk-input-group-addon">
-        <a href="#"><i class="fa fa-smile-o"></i></a>
-        </span>
-        <input type="text" placeholder="Type a message" id="submit_message" name="submit_message" class="md-input">
-        <span style="vertical-align: sub;" class="uk-input-group-addon">
-        <a href="#"><i class="fa fa-camera"></i></a>
-        </span>
-        </div>
+                    <div class="col-md-4 col-xs-4" style="text-align: right;">
 
-    <span class="uk-input-group-addon">
-    <a href="#"><i class="glyphicon glyphicon-send"></i></a>
-    </span>
+                        <a href="#"><span id="minim_chat_window" class="glyphicon glyphicon-minus icon_minim"></span></a>
+                        <a href="#"><span class="glyphicon glyphicon-remove icon_close" data-id="chat_window_1"></span></a>
+                    </div>
+                </div>
+                <div class="panel-body msg_container_base" id="scroll">
+
+                    <chat-log :messages="messages"></chat-log>
+
+    		</div>
+        <div class="panel-footer bottom-bar">
+
+              <chat-composer v-on:messagesent="addMessage"></chat-composer>
+
+        </div>
+        </div>
+        </div>
     </div>
+
+
+</div>
 </div>
 
-        </div>
+
 <!--SCRIPT REFERENCES-->
+<script>
+$(document).on('click', '.panel-heading span.icon_minim', function (e) {
+    var $this = $(this);
+    if (!$this.hasClass('panel-collapsed')) {
+        $this.parents('.panel').find('.panel-body').slideUp();
+        $this.addClass('panel-collapsed');
+        $this.removeClass('glyphicon-minus').addClass('glyphicon-plus');
+    } else {
+        $this.parents('.panel').find('.panel-body').slideDown();
+        $this.removeClass('panel-collapsed');
+        $this.removeClass('glyphicon-plus').addClass('glyphicon-minus');
+    }
+});
+$(document).on('focus', '.panel-footer input.chat_input', function (e) {
+    var $this = $(this);
+    if ($('#minim_chat_window').hasClass('panel-collapsed')) {
+        $this.parents('.panel').find('.panel-body').slideDown();
+        $('#minim_chat_window').removeClass('panel-collapsed');
+        $('#minim_chat_window').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+    }
+});
+$(document).on('click', '#new_chat', function (e) {
+    var size = $( ".chat-window:last-child" ).css("margin-left");
+     size_total = parseInt(size) + 400;
+    alert(size_total);
+    var clone = $( "#chat_window_1" ).clone().appendTo( ".container" );
+    clone.css("margin-left", size_total);
+});
+$(document).on('click', '.icon_close', function (e) {
+    //$(this).parent().parent().parent().parent().remove();
+    $( "#chat_window_1" ).remove();
+});
+
+
+
+
+$('.glyphicon-facetime-video').click(function(event) {
+
+      window.open($('#popup_video').attr("href"), "popupWindow", "width=800,height=800,scrollbars=yes");
+      return false;
+  });
+
+  $(function () {
+    var wtf = $('#scroll');
+    var height = wtf[0].scrollHeight;
+    wtf.scrollTop(height);
+});
+</script>
 <script src="js/StudentDash.js"></script>
 <script src="js/Menu.js"></script>
 <script src="js/app.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 @endsection

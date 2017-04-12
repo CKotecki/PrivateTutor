@@ -32,12 +32,14 @@ const app = new Vue({
             // Persist to the database etc
             axios.post('/messages', message).then(response => {
                 // Do whatever;
+                console.log('post')
             })
         }
     },
     created() {
         axios.get('/messages').then(response => {
             this.messages = response.data;
+            console.log('get')
         });
 
         Echo.join('chatroom')

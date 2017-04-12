@@ -1,3 +1,4 @@
+
 window._ = require('lodash');
 
 /**
@@ -42,5 +43,6 @@ window.Pusher = require('pusher-js');
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: '9155760ec70c8a5c19ca'
+    key: '9155760ec70c8a5c19ca',
+    encryption: false
 });
