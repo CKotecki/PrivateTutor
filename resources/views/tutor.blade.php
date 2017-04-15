@@ -1,7 +1,8 @@
 @extends('layouts.layout')
 @section('content')
+<link rel="stylesheet" href="css/app.css">
 <link rel="stylesheet" type="text/css" href="css/modal.css">
-
+<link rel="stylesheet" type="text/css" href="css/chat.css">
 <div class="Main">
 		<div class="calendar">
 				<div class="month">
@@ -144,30 +145,29 @@
 
 		  <!-- Modal content -->
 		  <div class="modal-content">
-			<span class="close">&times;</span>
-			<table>
-				<tr>
-					<td>Student:</td>
-					<td>Curtis</td>
-				</tr>
-				<tr>
-					<td>Time:</td>
-					<td>8:00 PM</td>
-				</tr>
-				<tr>
-					<td>Location:</td>
-					<td>The Rhino</td>
-				</tr>
-			</table>
+				<span class="close">&times;</span>
+				<table>
+					<tr>
+						<td>Student:</td>
+						<td> {{ Auth::user()->name }}</td>
+					</tr>
+					<tr>
+						<td>Time:</td>
+						<td>8:00 PM</td>
+					</tr>
+					<tr>
+						<td>Location:</td>
+						<td>  @{{ DB::select('SELECT location FROM event') }}</td>
+					</tr>
+				</table>
 		  </div>
-
 		</div>
   </body>
 
       <!--SCRIPT REFERENCES-->
     <script src="js/StudentDash.js"></script>
     <script src="js/Menu.js"></script>
-	<script src="js/TutorRating.js"></script>
+	<!--script src="js/TutorRating.js"></script-->
 
 	<script>
 		// function viewAccountInfo() {
@@ -229,7 +229,7 @@
 		//SCROLL RESUME EXPERIENCE BARS FUNCTION
 		var triggered = false;
 
-		$(window).on('scroll', function()
+		$(document).on('scroll',function()
 		{
 				var elemOffset = $('.myProgress').offset().top;
 				var elemHeight = $('.myProgress').height();
