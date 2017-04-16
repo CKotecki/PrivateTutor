@@ -159,7 +159,7 @@
             <li><hr id = "menu_divider"></li>
             <li><a href='{{url("tutor")}}' id="menu_nav_links">Tutor Dashboard</a></li>
             <li><hr id = "menu_divider"></li>
-            <li><a href="Settings.html" id="menu_nav_links">Settings</a></li>
+            <li><a href='{{url("settings")}}' id="menu_nav_links">Settings</a></li>
             <li><hr id = "menu_divider"></li>
             <li><a href="ContactUs.html" id="menu_nav_links">Contact</a></li>
         </ul>

@@ -23,6 +23,8 @@ Route::get('/welcome', 'WelcomeController@getWelcome');
 
 Route::get('/student', 'StudentController@getStudent');
 
+Route::get('/settings', 'SettingsController@getSettings');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
