@@ -426,7 +426,7 @@ input
 {
 	text-align: center;
 	background-color: #ECF0F1;
-	border: 2px solid transparent;
+	border: 2px solid #008793;
 	border-radius: 3px;
 	font-size: 16px;
 	font-weight: 200;
@@ -439,6 +439,15 @@ input:focus
 {
 	border: 2px solid #3498DB;
 	box-shadow: none;
+}
+
+:focus
+{
+  outline:none;
+}
+::-moz-focus-inner
+{
+  border:0;
 }
 
 .studentSelect
