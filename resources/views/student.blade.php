@@ -109,7 +109,7 @@
 
     <!-- Modal content -->
     <div class="modal-content">
-      <span class="close">&times;</span>
+      <!--span class="close">&times;</span-->
       <table>
         <tr>
           <td>Student:</td>
