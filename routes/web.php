@@ -29,20 +29,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-/*
-Route::get('/events',function() {
-
-$events = DB::table('events');
-
-  return view('student', compact('events'));
-
-})->middleware('auth');
-*/
 Route::get('/chat', function () {
     return view('chat');
 })->middleware('auth');
 
-Route::get('/student', 'EventController@createEvent');
+// /Route::get('/student', 'EventController@createEvent');
 
 Route::get('/messages', function () {
     return App\Message::with('user')->get();

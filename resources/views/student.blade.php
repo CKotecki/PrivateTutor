@@ -113,7 +113,7 @@
       <table>
         <tr>
           <td>Student:</td>
-          <td> {{ Auth::user()->name }}</td>
+          <td> {{ Auth::user()->name }} </td>
         </tr>
         <tr>
           <td> Date:</td>

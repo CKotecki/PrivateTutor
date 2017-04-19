@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 class EventController extends Controller
 {
     //CREATES EVENTS IN THE DATABASE
-    function createEvent(date date, time time, string location, int tutorID, int studentID)
+  /*  function createEvent(date date, time time, string location, int tutorID, int studentID)
     {
         DB::table('events')->insert(
         [
@@ -17,5 +17,5 @@ class EventController extends Controller
             'tutorID' => '4',
             'studentID' => '3'
         ]);
-  }
+  }*/
 }
