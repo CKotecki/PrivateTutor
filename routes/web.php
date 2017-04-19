@@ -29,10 +29,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+/*
 Route::get('/events',function() {
-  return App\Events::with('user')->get();
-})->middleware('auth');
 
+$events = DB::table('events');
+
+  return view('student', compact('events'));
+
+})->middleware('auth');
+*/
 Route::get('/chat', function () {
     return view('chat');
 })->middleware('auth');

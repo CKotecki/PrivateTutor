@@ -116,12 +116,16 @@
           <td> {{ Auth::user()->name }}</td>
         </tr>
         <tr>
+          <td> Date:</td>
+          <td> {{ $events->date }} </td>
+        </tr>
+        <tr>
           <td>Time:</td>
-          <td>8:00 PM</td>
+          <td> {{ $events->time }} </td>
         </tr>
         <tr>
           <td>Location:</td>
-          <td>  @{{ $event->location }}</td>
+          <td>{{ $events->location }} </td>
         </tr>
       </table>
     </div>
