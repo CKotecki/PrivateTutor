@@ -159,6 +159,9 @@
 					<td>The Rhino</td>
 				</tr>
 			</table>
+			<form name="schedule_meeting" method="POST">
+				<input type="submit" name="insert_meeting" value="Schedule Meeting"/>
+			</form>
 		  </div>
 
 		</div>

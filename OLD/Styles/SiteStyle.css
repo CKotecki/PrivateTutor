@@ -28,7 +28,7 @@ h1
 	margin: 0px;
 	color: #005B80;
 	font-family: Roboto Condensed, sans-serif;
-	
+
 }
 
 h2
@@ -133,13 +133,13 @@ p
 {
 	background-color: #F4F6F5;
 	color: #005B80;
-	
+
 	font-size: 22px;
 	font-family: sans-serif;
-	
+
 	width: 50%;
 	height: 800px;
-	
+
 	float: left;
 }
 
@@ -147,16 +147,16 @@ p
 {
 	background-color: #F4F6F5;
 	color: #005B80;
-	
+
 	font-size: 22px;
 	display: block;
 	font-family: sans-serif;
 	position: relative;
 	width: 49%;
-	
+
 	text-align: center;
 	float: left;
-	
+
 	margin: 0px;
 	height: auto;
 	padding-bottom: 45px;
@@ -181,7 +181,7 @@ p
 	font-family: sans-serif;
 	width: 50%;
 	height: auto;
-	
+
 	float: left;
 }
 
@@ -192,11 +192,11 @@ p
 	position: relative;
 	font-size: 22px;
 	font-family: sans-serif;
-	
+
 	width: 49%;
 	text-align: center;
 	float: right;
-	
+
 
 	height: auto;
 	margin: 0px;
@@ -207,7 +207,7 @@ p
 {
 	/*background-color: #005B80;*/
 	/*color: #F4F6F5;*/
-	
+
 	/*font-size: 22px;*/
 	/*font-family: sans-serif;*/
 	position: relative;
@@ -224,7 +224,7 @@ p
 	height: auto;
 	width: auto;
 }
-	
+
 .Footer
 {
 	font-family: Roboto Condensed, sans-serif;
@@ -339,7 +339,7 @@ a.boxclose{
 	margin: 10px;
 }
 
-.myProgress 
+.myProgress
 {
   position: relative;
   width: 100%;
@@ -348,7 +348,7 @@ a.boxclose{
   margin: 10px;
 }
 
-.myBar 
+.myBar
 {
   position: absolute;
   width: 1%;
@@ -365,7 +365,7 @@ a.boxclose{
 
 subOptionChild
 {
-	
+
 }
 .subject-select
 {
@@ -392,7 +392,7 @@ option:checked
 	margin-left: 0px;
 	border: none;
 }
-			
+
 optgroup
 {
 	text-decoration: none;
@@ -405,7 +405,7 @@ input
 {
 	text-align: center;
 	background-color: #ECF0F1;
-	border: 2px solid transparent;
+	border: 2px solid;
 	border-radius: 3px;
 	font-size: 16px;
 	font-weight: 200;
@@ -490,7 +490,7 @@ input:focus
 {
 	margin-top: 44px;
 	margin-bottom: 37px;
-	
+
 }
 
 #tutor-img
@@ -679,24 +679,24 @@ body
 	{
 		width: 13.4%;
 	}
-	
+
 	.calendar
 	{
 		width: 100%;
 		float: left;
 	}
-	
+
 	.Right_Partial
 	{
 		float: left;
 		width: 100%;
 	}
-	
+
 	.Left_Partial
 	{
 		width: 100%;
 	}
-	
+
 }
 
 @media only screen and (max-width:767px)

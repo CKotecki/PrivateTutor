@@ -31,9 +31,12 @@ Route::get('/chat', function () {
     return view('chat');
 })->middleware('auth');
 
+Route::get('/student', 'EventController@createEvent');
+
 Route::get('/messages', function () {
     return App\Message::with('user')->get();
 })->middleware('auth');
+
 
 Route::post('/messages', function () {
     // Store the new message
