@@ -315,6 +315,7 @@ a.boxclose{
     color: #CFFCF9;
     font-family: Roboto Condensed, sans-serif;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .chip img

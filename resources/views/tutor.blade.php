@@ -1,8 +1,9 @@
 @extends('layouts.layout')
 @section('content')
 <link rel="stylesheet" href="css/app.css">
-<link rel="stylesheet" type="text/css" href="css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/chat.css">
+<link rel="stylesheet" type="text/css" href="css/modal.css">
+<body>
 <div class="Main">
 		<div class="calendar">
 				<div class="month">
@@ -137,29 +138,47 @@
 			</div>
 		</div>
 
-
-		<div class="main"></div>
-
 				<!-- The Modal -->
 		<div id="myModal" class="modal">
 
 		  <!-- Modal content -->
 		  <div class="modal-content">
-				<span class="close">&times;</span>
-				<table>
-					<tr>
-						<td>Student:</td>
-						<td> {{ Auth::user()->name }}</td>
-					</tr>
-					<tr>
-						<td>Time:</td>
-						<td>8:00 PM</td>
-					</tr>
-					<tr>
-						<td>Location:</td>
-						<td>  @{{ DB::select('SELECT location FROM event') }}</td>
-					</tr>
-				</table>
+				<table class="eventTable">
+	        @if(count($events) != 0)
+	          @foreach($events as $index=>$event)
+	            @if(time(strtotime($event->date)) <= time())
+	              <tr>
+	                <td class="tableLabel">Student:</td>
+	                @if(count($studentNames) != 0 && $studentNames[$index])
+	                  <td> {{ $studentNames[$index] }} </td>
+	                @else
+	                  <td> Student Not Available </td>
+	                @endif
+	              </tr>
+	              <tr>
+	                <td class="tableLabel">Date:</td>
+	                <td> {{ date('l, F jS, Y',strtotime($event->date)) }} </td>
+	              </tr>
+	              <tr>
+	                <td class="tableLabel">Time:</td>
+	                <td> {{ date('g:i',strtotime($event->time)) }} </td>
+	              </tr>
+	              <tr>
+	                <td class="tableLabel">Location:</td>
+	                <td>{{ $event->location }} </td>
+	              </tr>
+	              <tr>
+	                <td><hr></td>
+	                <td><hr></td>
+	              </tr>
+	            @endif
+	          @endforeach
+	        @else
+	          <tr>
+	            <td>No Events Scheduled</td>
+	          </tr>
+	        @endif
+	      </table>
 		  </div>
 		</div>
   </body>

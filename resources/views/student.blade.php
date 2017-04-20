@@ -1,10 +1,5 @@
 @extends('layouts.layout')
 @section('content')
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
-<!-- Latest compiled and minified CSS -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-
-<!-- Styles -->
 <link rel="stylesheet" href="css/app.css">
 <link rel="stylesheet" type="text/css" href="css/chat.css">
 <link rel="stylesheet" type="text/css" href="css/modal.css">
@@ -112,18 +107,18 @@
       <!--span class="close">&times;</span-->
       <table class="eventTable">
         @if(count($events) != 0)
-          @foreach($events as $event)
+          @foreach($events as $index=>$event)
             @if(time(strtotime($event->date)) <= time())
               <tr>
                 <td class="tableLabel">Tutor:</td>
-                @if(count($tutorUser) != 0)
-                  <td> {{ $tutorUser[0]->name }} </td>
+                @if(count($tutorNames) != 0)
+                  <td> {{ $tutorNames[$index] }} </td>
                 @else
                   <td> Tutor Not Available </td>
                 @endif
               </tr>
               <tr>
-                <td class="tableLabel"> Date:</td>
+                <td class="tableLabel">Date:</td>
                 <td> {{ date('l, F jS, Y',strtotime($event->date)) }} </td>
               </tr>
               <tr>
