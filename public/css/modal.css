@@ -1,3 +1,26 @@
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.eventTable {
+    width: 100%;
+}
+
+.eventTable hr {
+  border-width: 2px;
+  border-color: #008793;
+}
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -23,17 +46,6 @@
     width: 40%; /* Could be more or less, depending on screen size */
 }
 
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.tableLabel {
+    width: 125px;
 }

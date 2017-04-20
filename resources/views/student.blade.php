@@ -110,23 +110,41 @@
     <!-- Modal content -->
     <div class="modal-content">
       <!--span class="close">&times;</span-->
-      <table>
-        <tr>
-          <td>Student:</td>
-          <td> {{ Auth::user()->name }} </td>
-        </tr>
-        <tr>
-          <td> Date:</td>
-          <td> {{ $events->date }} </td>
-        </tr>
-        <tr>
-          <td>Time:</td>
-          <td> {{ $events->time }} </td>
-        </tr>
-        <tr>
-          <td>Location:</td>
-          <td>{{ $events->location }} </td>
-        </tr>
+      <table class="eventTable">
+        @if(count($events) != 0)
+          @foreach($events as $event)
+            @if(time(strtotime($event->date)) <= time())
+              <tr>
+                <td class="tableLabel">Tutor:</td>
+                @if(count($tutorUser) != 0)
+                  <td> {{ $tutorUser[0]->name }} </td>
+                @else
+                  <td> Tutor Not Available </td>
+                @endif
+              </tr>
+              <tr>
+                <td class="tableLabel"> Date:</td>
+                <td> {{ date('l, F jS, Y',strtotime($event->date)) }} </td>
+              </tr>
+              <tr>
+                <td class="tableLabel">Time:</td>
+                <td> {{ date('g:i',strtotime($event->time)) }} </td>
+              </tr>
+              <tr>
+                <td class="tableLabel">Location:</td>
+                <td>{{ $event->location }} </td>
+              </tr>
+              <tr>
+                <td><hr></td>
+                <td><hr></td>
+              </tr>
+            @endif
+          @endforeach
+        @else
+          <tr>
+            <td>No Events Scheduled</td>
+          </tr>
+        @endif
       </table>
     </div>
   </div>
