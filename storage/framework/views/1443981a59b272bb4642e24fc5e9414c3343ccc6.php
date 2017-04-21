@@ -5,7 +5,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="<?php echo e(route('register')); ?>">
+                    <form class="form-horizontal" role="form" method="POST" action="<?php echo e(url('/register')); ?>">
                         <?php echo e(csrf_field()); ?>
 
 
