@@ -108,8 +108,13 @@
   <div id="myModal" class="modal">
 
     <!-- Modal content -->
+<<<<<<< HEAD
     <div class="modal-content" id="view-events">
       <span class="close">&times;</span>
+=======
+    <div class="modal-content">
+      <!--span class="close">&times;</span-->
+>>>>>>> 5d765b4cc00dca3253baf58dda5fdcaac1f12315
       <table>
         <tr>
           <td>Student:</td>
