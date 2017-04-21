@@ -2562,3 +2562,39 @@ Stack trace:
     },
     "socket": "215865.10398658"
 }  
+[2017-04-21 16:32:28] local.INFO: Broadcasting [App\Events\MessagePosted] on channels [presence-chatroom] with payload:
+{
+    "message": {
+        "id": 7,
+        "created_at": "2017-04-21 16:32:28",
+        "updated_at": "2017-04-21 16:32:28",
+        "message": "hi",
+        "user_id": 2
+    },
+    "user": {
+        "id": 2,
+        "name": "Luke Jaynes",
+        "email": "ljaynes87@gmail.com",
+        "created_at": "2017-04-06 22:23:31",
+        "updated_at": "2017-04-06 22:23:31"
+    },
+    "socket": "215973.16358655"
+}  
+[2017-04-21 16:33:37] local.INFO: Broadcasting [App\Events\MessagePosted] on channels [presence-chatroom] with payload:
+{
+    "message": {
+        "id": 8,
+        "created_at": "2017-04-21 16:33:36",
+        "updated_at": "2017-04-21 16:33:36",
+        "message": "boken",
+        "user_id": 4
+    },
+    "user": {
+        "id": 4,
+        "name": "Bob Jones",
+        "email": "bob@hotmail.com",
+        "created_at": "2017-04-07 05:55:59",
+        "updated_at": "2017-04-07 05:55:59"
+    },
+    "socket": "215968.16362022"
+}  
