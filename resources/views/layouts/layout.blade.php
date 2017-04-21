@@ -252,17 +252,18 @@
   </div>
   <div class="overlay" id="overlay" style="display:none;"></div>
   @endif
-  <footer>
-    <div class="Footer">
-      <p>
-        Lesson Logistics</br>
-        123 Living The Dream Drive</br>
-        lessonlog@pleaseworkatleastforthepresentation.com</br>
-        1-800-TUTOR
-      </p>
-    </div>
-  </footer>
+
 </body>
+<footer>
+  <div class="Footer">
+    <p>
+      Lesson Logistics</br>
+      123 Living The Dream Drive</br>
+      lessonlog@pleaseworkatleastforthepresentation.com</br>
+      1-800-TUTOR
+    </p>
+  </div>
+</footer>
 
 <!-- footer -->
 

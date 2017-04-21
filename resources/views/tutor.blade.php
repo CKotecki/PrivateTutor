@@ -247,39 +247,41 @@
 	<script>
 		//SCROLL RESUME EXPERIENCE BARS FUNCTION
 		var triggered = false;
-
-		$(document).on('scroll',function()
+		/*
+		$(window).on('load', function()
 		{
-				var elemOffset = $('.myProgress').offset().top;
-				var elemHeight = $('.myProgress').height();
-				var windowHeight = $(window).height();
-				var offset = elemOffset - ((windowHeight / 2)-(elemHeight / 2));
+			alert("TESTING...");
+		});
+		*/
+		$(window).on('load', function()
+		{
+			var elemOffset = $('.myProgress').offset().top;
+			var elemHeight = $('.myProgress').height();
+			var windowHeight = $(window).height();
+			var offset = elemOffset - ((windowHeight / 2)-(elemHeight / 2));
 
-				if($(window).scrollTop() > offset && triggered == 0 )
-				{
-				console.log("made it");
-					$('#skill-1').animate
-					({
-						width: "90%"
-					}, 1000);
+			console.log("made it");
+				$('#skill-1').animate
+				({
+					width: "90%"
+				}, 1000);
 
-					$('#skill-2').animate
-					({
-						width: "40%"
-					}, 1000);
+				$('#skill-2').animate
+				({
+					width: "40%"
+				}, 1000);
 
-					$('#skill-3').animate
-					({
-						width: "30%"
-					}, 1000);
+				$('#skill-3').animate
+				({
+					width: "30%"
+				}, 1000);
 
-					$('#skill-4').animate
-					({
-						width: "80%"
-					}, 1000);
+				$('#skill-4').animate
+				({
+					width: "80%"
+				}, 1000);
 
-					triggered = true;
-				}
+				triggered = true;
 		});
 
 
