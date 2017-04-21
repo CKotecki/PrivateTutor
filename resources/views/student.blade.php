@@ -108,7 +108,7 @@
       <table class="eventTable">
         @if(count($events) != 0)
           @foreach($events as $index=>$event)
-            @if(time(strtotime($event->date)) <= time())
+            @if(time(strtotime($event->date)) >= time())
               <tr>
                 <td class="tableLabel">Tutor:</td>
                 @if(count($tutorNames) != 0)
