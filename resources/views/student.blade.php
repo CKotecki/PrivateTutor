@@ -103,11 +103,8 @@
   <div id="myModal" class="modal">
 
     <!-- Modal content -->
-<<<<<<< HEAD
+
     <div class="modal-content" id="view-events">
-      <span class="close">&times;</span>
-=======
-    <div class="modal-content">
       <!--span class="close">&times;</span-->
       <table class="eventTable">
         @if(count($events) != 0)
@@ -165,18 +162,17 @@
             </div>
 
             <script>
-              $('#datepicker').datepicker();
-              $('#datepicker').on('changeDate', function()
-              {
-                $('#my_hidden_input').val($('#datepicker').datepicker('getFormattedDate'));
-              });
+              //$('#datepicker').datepicker();
+              //$('#datepicker').on('changeDate', function()
+              //{
+              //  $('#my_hidden_input').val($('#datepicker').datepicker('getFormattedDate'));
+              //});
             </script>
           </td>
         </tr>
       </table>
       </br> <!--COMMENT THIS OUT AND ADD PADING-BOTTOM TO TABLE-->
     </div>
-  </div>
 </body>
 
 
