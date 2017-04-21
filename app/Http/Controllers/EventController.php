@@ -4,18 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use DB;
 
 class EventController extends Controller
 {
     //CREATES EVENTS IN THE DATABASE
-  /*  function createEvent(date date, time time, string location, int tutorID, int studentID)
+    function createEvent()
     {
         DB::table('events')->insert(
         [
-            'location' => 'Pedophile dungeon',
-            'dateTime' => '2005-08-15T15:52:01+00:00',
+            'location' => 'Unicorn Bloodbath',
             'tutorID' => '4',
+            'date' => '2000-01-01',
+            'time' => '12:03:04',
             'studentID' => '3'
         ]);
-  }*/
+
+        //return view('student');
+    }
 }

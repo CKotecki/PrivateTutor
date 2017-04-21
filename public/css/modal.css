@@ -37,6 +37,11 @@
     font-family: "Roboto Condensed", sans-serif !important;
 }
 
+#create-events
+{
+    display: none;
+}
+
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;

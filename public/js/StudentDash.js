@@ -93,6 +93,8 @@ function calendarBuilder(month, year)
 		window.onclick = function(event) {
 			if (event.target == modal) {
 				modal.style.display = "none";
+        $("#create-events").hide();
+        $("#view-events").show();
 			}
 		};
 
