@@ -108,7 +108,7 @@
   <div id="myModal" class="modal">
 
     <!-- Modal content -->
-    <div class="modal-content">
+    <div class="modal-content" id="view-events">
       <span class="close">&times;</span>
       <table>
         <tr>
@@ -128,6 +128,36 @@
           <td>{{ $events->location }} </td>
         </tr>
       </table>
+      </br> <!--COMMENT THIS OUT AND ADD PADING-BOTTOM TO TABLE-->
+      <button class="btn btn-primary btn-large btn-block" onclick="showEventWindow()">New Appointment</button>
+    </div>
+
+    <div class="modal-content" id="create-events">
+      <table>
+        <tr>
+          <td style="text-align:center;">New Appointment:</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="input-group date">
+              <input type="text" class="form-control" value="12-02-2012">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+              </div>
+            </div>
+
+            <script>
+              $('#datepicker').datepicker();
+              $('#datepicker').on('changeDate', function()
+              {
+                $('#my_hidden_input').val($('#datepicker').datepicker('getFormattedDate'));
+              });
+            </script>
+          </td>
+        </tr>
+      </table>
+      </br> <!--COMMENT THIS OUT AND ADD PADING-BOTTOM TO TABLE-->
     </div>
   </div>
 </body>
@@ -185,5 +215,6 @@ $('.glyphicon-facetime-video').click(function(event) {
 <script src="js/StudentDash.js"></script>
 <script src="js/Menu.js"></script>
 <script src="js/app.js"></script>
+<script src="js/NewEvent.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 @endsection
