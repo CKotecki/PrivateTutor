@@ -145,6 +145,8 @@ bottom:0;
 <!-- Styles -->
 <link rel="stylesheet" type="text/css" href="css/chat.css">
 <div class="Main">
+  {{ csrf_field() }}
+
     <div class="calendar">
         <div class="month">
             <ul>
@@ -189,10 +191,10 @@ bottom:0;
   other than being the surface of the three-dimensional objects of your universe. Also I have no face.
 </p>
 
-<select name="Your Students" title="Your Students" class="studentSelect">
-    <option value="Clayton">Johnny Instruction</option>
-    <option value="Luke">Leslie Learner</option>
-    <option value="Curtis" selected>Tommy Tutor</option>
+<select name="Your Students" title="Your Students" class="studentSelect" id="tutorSelect">
+  @foreach ($tutors as $tutor)
+    <option value="{{$tutor->name}}">{{$tutor->name}}</option>
+  @endforeach
   </select>
 </form>
 
@@ -202,6 +204,8 @@ bottom:0;
 
 
 <p style="margin: 0px; margin-top: 45px;">Tutor Communication</p>
+
+<a href="{{route('search')}}" class="page-scroll btn btn-xl">Find a Tutor</a>
 <!-- Chat setup -->
 {{-- <div id="app">
   <chat-log :messages="messages"></chat-log>
@@ -238,7 +242,7 @@ bottom:0;
                 </div>
                 <div class="panel-body msg_container_base" id="scroll">
 
-                    <chat-log :messages="messages"></chat-log>
+                    <chat-log :messages="messages" ></chat-log>
 
     		</div>
         <div class="panel-footer bottom-bar">
@@ -257,14 +261,17 @@ bottom:0;
 
 <!--SCRIPT REFERENCES-->
 <script>
+
 $(document).on('click', '.panel-heading span.icon_minim', function (e) {
     var $this = $(this);
     if (!$this.hasClass('panel-collapsed')) {
         $this.parents('.panel').find('.panel-body').slideUp();
+        $this.parents('.panel').find('.panel-footer').slideUp();
         $this.addClass('panel-collapsed');
         $this.removeClass('glyphicon-minus').addClass('glyphicon-plus');
     } else {
         $this.parents('.panel').find('.panel-body').slideDown();
+        $this.parents('.panel').find('.panel-footer').slideDown();
         $this.removeClass('panel-collapsed');
         $this.removeClass('glyphicon-plus').addClass('glyphicon-minus');
     }
@@ -291,12 +298,12 @@ $(document).on('click', '.icon_close', function (e) {
 
 
 
+$( document ).ready(function() {
+  var $this = $(this);
 
-$('.glyphicon-facetime-video').click(function(event) {
+document.getElementById("minim_chat_window").click();
 
-      window.open($('#popup_video').attr("href"), "popupWindow", "width=800,height=800,scrollbars=yes");
-      return false;
-  });
+});
 
   $(function () {
     var wtf = $('#scroll');

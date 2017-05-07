@@ -19,9 +19,9 @@ Route::get('/', function () {
 
 Route::get('/tutor', 'TutorController@getTutor');
 
-Route::get('/welcome', 'WelcomeController@getWelcome');
+Route::get('/welcome', 'WelcomeController@getWelcome')->name('welcome');
 
-Route::get('/student', 'StudentController@getStudent');
+Route::get('/student', 'StudentController@getStudent')->name('student');
 
 Auth::routes();
 
@@ -48,3 +48,10 @@ Route::post('/messages', function () {
 
     return ['status' => 'OK'];
 })->middleware('auth');
+
+
+
+
+Route::get('/search', 'SearchController@getTutors')->name('search');
+
+Route::post('/search', 'SearchController@addTutor')->name('search');

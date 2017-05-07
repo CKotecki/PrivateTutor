@@ -239,7 +239,9 @@ p
 	font-size: 20px;
     width: 100%;
 	padding: 25px;
-	z-index: -1 !important;
+	z-index: 1 !important;
+
+bottom: 0;
 }
 
 /*Pop up for login*/
