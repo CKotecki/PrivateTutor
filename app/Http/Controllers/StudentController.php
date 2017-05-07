@@ -3,13 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
-use Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class StudentController extends Controller
 {
-    public function getStudent()
+    public function getStudent(Request $request)
     {
+        $userid = $request->user()->id;
+        //get course users from DB
+        $tutors = DB::table('student_tutor_link')
+            ->join('users','users.id','=', 'student_tutor_link.tutorID')
+            ->select('users.name')
+            ->where('student_tutor_link.studentID', '=', $userid)
+            ->get();
+
 
       //HOLD TUTOR INFO FOR EACH EVENT FOR TUTOR NAME LOOKUP IN USER TABLE
       $tutorNames = [];
@@ -39,6 +48,8 @@ class StudentController extends Controller
         array_push($tutorNames, $tutorUser[0]->name);
       }
 
-      return view('student', compact('events', 'tutorNames'));
+
+      return view('student', compact('events', 'tutorNames'))->with('tutors',$tutors);
+
     }
 }

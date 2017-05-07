@@ -242,6 +242,7 @@ footer
 	height: 130px;
 	float: left;
 	font-size: 20px;
+
   width: 100%;
 	padding: 0;
 	/*z-index: 1 !important;*/
@@ -253,6 +254,13 @@ footer p
   margin-left: 10px;
   margin-top:15px;
   display: block;
+
+
+    width: 100%;
+	padding: 25px;
+	z-index: 1 !important;
+
+/*bottom: 0;*/
 
 }
 
