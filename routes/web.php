@@ -19,9 +19,11 @@ Route::get('/', function () {
 
 Route::get('/tutor', 'TutorController@getTutor');
 
-Route::get('/welcome', 'WelcomeController@getWelcome')->name('welcome');
+Route::get('/welcome', 'WelcomeController@getWelcome');
 
 Route::get('/student', 'StudentController@getStudent')->name('student');
+
+Route::get('/settings', 'SettingsController@getSettings');
 
 Auth::routes();
 
@@ -31,9 +33,12 @@ Route::get('/chat', function () {
     return view('chat');
 })->middleware('auth');
 
+//Route::get('/student', 'EventController@createEvent');
+
 Route::get('/messages', function () {
     return App\Message::with('user')->get();
 })->middleware('auth');
+
 
 Route::post('/messages', function () {
     // Store the new message
@@ -48,9 +53,6 @@ Route::post('/messages', function () {
 
     return ['status' => 'OK'];
 })->middleware('auth');
-
-
-
 
 Route::get('/search', 'SearchController@getTutors')->name('search');
 

@@ -13,6 +13,7 @@
 html
 {
    height: 100% !important;
+   cursor: normal;
 }
 
 body
@@ -24,7 +25,6 @@ body
 	height: 100% !important;
 	background-color: #F4F6F5;
 	font-family: Roboto Condensed, sans-serif;
-
 }
 
 h1
@@ -77,10 +77,16 @@ p
 	width: 275px;
 }
 
+#UserName
+{
+    color: #CFFCF9;
+    cursor: pointer;
+}
+
 .menu
 {
 	width: 520px;
-	height: 100% !important;
+	height: calc(100vh - 60px);
 	background-color:  #004466;
 	color: rgb(250,251,252);
 	position: absolute;
@@ -129,7 +135,6 @@ p
 	font-family: sans-serif;
 	min-width: 372px;
 	width: 100%;
-	height: 100%;
 	float: left;
 }
 
@@ -228,6 +233,28 @@ p
 	height: auto;
 	width: auto;
 }
+/*
+footer
+{
+	font-family: Roboto Condensed, sans-serif;
+	background-color: #2CC0A6;
+	color: #F4F6F5 !important;
+	height: 130px;
+	float: left;
+	font-size: 20px;
+  width: 100%;
+	padding: 0;
+	z-index: 1 !important;
+  position: absolute;
+  bottom: 0 !important;
+}
+footer p
+{
+  margin-left: 10px;
+  margin-top:15px;
+  display: block;
+
+}*/
 
 .Footer
 {
@@ -250,8 +277,8 @@ bottom: 0;
     position:fixed;
     top:-400px;
     left:50%;
-	margin-left: -150px;
-	z-index:101;
+  	margin-left: -150px;
+  	z-index:101;
 }
 
 a.boxclose{
@@ -289,25 +316,26 @@ a.boxclose{
 .chip
 {
     display: inline-block;
-	float: right;
+    float: right;
     padding: 0 25px;
-	margin: 10px;
+    margin: 10px;
     height: 80px;
     font-size: 20px;
     line-height: 75px;
     border-radius: 45px;
     background-color: #00a4b3;
-	color: #CFFCF9;
-	font-family: Roboto Condensed, sans-serif;
-	overflow: hidden;
+    color: #CFFCF9;
+    font-family: Roboto Condensed, sans-serif;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .chip img
 {
     float: left;
     margin-top: 0px;
-	margin-right: 65px;
-	margin-left: -26px;
+    margin-right: 65px;
+    margin-left: -26px;
     height: 80px;
     width: 80px;
     border-radius: 50%;
@@ -392,11 +420,11 @@ subOptionChild
 
 option:checked
 {
-    box-shadow: 0 0 10px 100px #1ABC9C inset;
-    transition: all .2s ease-in-out;
-	width: 100%;
-	margin-left: 0px;
-	border: none;
+  box-shadow: 0 0 10px 100px #1ABC9C inset;
+  transition: all .2s ease-in-out;
+  width: 100%;
+  margin-left: 0px;
+  border: none;
 }
 
 optgroup
@@ -411,7 +439,7 @@ input
 {
 	text-align: center;
 	background-color: #ECF0F1;
-	border: 2px solid transparent;
+	border: 2px solid #008793;
 	border-radius: 3px;
 	font-size: 16px;
 	font-weight: 200;
@@ -424,6 +452,15 @@ input:focus
 {
 	border: 2px solid #3498DB;
 	box-shadow: none;
+}
+
+:focus
+{
+  outline:none;
+}
+::-moz-focus-inner
+{
+  border:0;
 }
 
 .studentSelect
@@ -551,11 +588,6 @@ ul
 	list-style-type: none;
 }
 
-body
-{
-	font-family: Roboto Condensed ,sans-serif;
-}
-
 .month
 {
     padding: 70px 25px;
@@ -591,8 +623,8 @@ body
 {
     float: right;
     padding-top: 10px;
-	font-size: 35px;
-	cursor: pointer;
+    font-size: 35px;
+    cursor: pointer;
 }
 
 .weekdays
@@ -600,8 +632,8 @@ body
     margin: 0;
     padding: 10px 0;
     background-color: #ddd;
-	white-space: nowrap;
-	min-width: 300px;
+    white-space: nowrap;
+    min-width: 300px;
 }
 
 .weekdays li
@@ -616,10 +648,10 @@ body
 {
     padding: 3px 0px 3px 3px;
     /*background: #eee;*/
-	background-color: #4defcf;
-	width: 100%;
+    background-color: #4defcf;
+    width: 100%;
     margin: 0;
-	min-width: 300px;
+    min-width: 300px;
 }
 
 .days li
@@ -630,14 +662,15 @@ body
     text-align: center;
     margin: 3px;
     font-size:16px;
-	font-family: sans-serif;
+    font-family: sans-serif;
     color: #777;
-	background-color: #F4F6F5;
-	/*border: solid .5px;
-	border-color:  #78edd5;
-	border-radius: 5px;*/
-	padding-top: 31px;
-	padding-bottom: 32px;
+    background-color: #F4F6F5;
+    /*border: solid .5px;
+    border-color:  #78edd5;
+    border-radius: 5px;*/
+    padding-top: 31px;
+    padding-bottom: 32px;
+    cursor: pointer;
 }
 
 .active

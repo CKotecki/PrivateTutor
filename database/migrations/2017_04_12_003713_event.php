@@ -15,7 +15,9 @@ class Event extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->increments('eventID');
-            $table->DateTime('dateTime');
+            $table->Date('date');
+            $table->Time('time');
+            $table->string('location');
             $table->integer('tutorID');
             $table->integer('studentID');
             $table->timestamp('created_at')->nullable();

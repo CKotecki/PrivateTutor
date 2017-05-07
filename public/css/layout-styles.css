@@ -1,14 +1,14 @@
-html,body 
+html, body 
 {
   height: 100%;
 }
 
-* 
+*
 {
     -moz-box-sizing: border-box;
 }
 
-body 
+body
 {
   background-color: #ededed;
   color: #424242;
@@ -50,12 +50,12 @@ a:hover,a:focus{color:#165db5;text-decoration:underline}
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#71a100', endColorstr='#6fa100',GradientType=0 );
 }
 
-:root .top-bar 
+:root .top-bar
 {
   filter: none \0/IE9;
 }
 
-.welcome-container 
+.welcome-container
 {
   width: 500px;
   margin: 0 auto;
@@ -63,12 +63,12 @@ a:hover,a:focus{color:#165db5;text-decoration:underline}
   padding-bottom: 60px;
 }
 
-.coming-soon-wrap 
+.coming-soon-wrap
 {
   margin-top: 90px;
 }
 
-.frowny-face 
+.frowny-face
 {
   text-align: center;
   font-size: 130px;
@@ -78,44 +78,44 @@ a:hover,a:focus{color:#165db5;text-decoration:underline}
   margin-bottom: 70px;
 }
 
-.welcome-container h1 
+.welcome-container h1
 {
   margin-bottom: 1em;
 }
 
-.btn-primary 
+.btn-primary
 {
     background-color: #7FB141;
     border-color: #648C33;
     color: #FFFFFF;
 }
 
-input, button, select, textarea 
+input, button, select, textarea
 {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
 }
-button, html input[type="button"], input[type="reset"], input[type="submit"] 
+button, html input[type="button"], input[type="reset"], input[type="submit"]
 {
     cursor: pointer;
 }
-button, select 
+button, select
 {
     text-transform: none;
 }
-button, input 
+button, input
 {
     line-height: normal;
 }
-button, input, select, textarea 
+button, input, select, textarea
 {
     font-family: inherit;
     font-size: 100%;
     margin: 0;
 }
 
-.btn 
+.btn
 {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
@@ -139,7 +139,7 @@ button, input, select, textarea
     text-decoration: none;
 }
 
-.btn-primary 
+.btn-primary
 {
     background-color: #7FB141;
     border-color: #648C33;
@@ -147,29 +147,29 @@ button, input, select, textarea
 }
 
 
-.btn-primary:hover, 
-.btn-primary:focus, 
-.btn-primary:active, 
-.btn-primary.active 
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active
 {
     background-color: #729E3A;
     border-color: #496626;
     color: #fff;
 }
 
-.btn:hover, 
-.btn:focus 
+.btn:hover,
+.btn:focus
 {
     text-decoration: none;
 }
 
-.login-container 
+.login-container
 {
   text-align: right;
   margin: 20px;
 }
 
-.footer 
+.footer
 {
   position: relative;
   margin-top: -60px; /* negative value of footer height */
